@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-end w-4/5 fixed">
+  <div class="flex flex-col items-end w-1/2 fixed">
     <div class="w-full flex justify-end">
       <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" />
     </div>

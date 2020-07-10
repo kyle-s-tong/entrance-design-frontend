@@ -18,6 +18,10 @@ module.exports = {
       black: '#000',
       white: '#fff',
 
+      entrance: {
+        gray: '#c8c8c8',
+      },
+
       gray: {
         100: '#f7fafc',
         200: '#edf2f7',
@@ -361,6 +365,7 @@ module.exports = {
       '25': '0.25',
       '50': '0.5',
       '75': '0.75',
+      '90': '0.90',
       '100': '1',
     },
     order: {

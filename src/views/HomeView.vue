@@ -3,7 +3,7 @@
     <div class="flex w-full justify-center h-90 bg-black bg-opacity-25">
       <TheHeaderBar />
     </div>
-    <div class="flex w-full justify-center h-90 flex flex-col">
+    <div class="flex w-full justify-center flex flex-col background">
       <StepTile v-for="step in steps" :key="step.title" :step="step" />
     </div>
   </div>

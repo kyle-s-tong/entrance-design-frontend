@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="w-full h-full flex flex-col items-center bg-fixed">
+  <div id="app" class="w-full h-full flex flex-col items-center background">
     <router-view></router-view>
   </div>
 </template>
@@ -14,10 +14,11 @@ export default {
 </script>
 
 <style>
-  #app {
+  .background {
     background-image: url("./assets/background-image.jpg") ;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 
   html, body {
