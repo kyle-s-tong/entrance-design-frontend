@@ -1,7 +1,7 @@
 <template>
   <div>
     <button class="text-white uppercase">
-      {{ text }}
+      {{ link.text }}
     </button>
   </div>
 </template>
@@ -10,7 +10,7 @@
 export default {
   name: 'LinkButton',
   props: {
-    text: String,
+    link: Object,
   }
 }
 </script>

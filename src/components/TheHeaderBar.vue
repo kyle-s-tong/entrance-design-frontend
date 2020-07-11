@@ -6,7 +6,7 @@
         <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" />
       </div>
       <HeaderBarLogo :logoClass="'py-24'" v-if="!this.isCollapsed" />
-      <LinkButton text="Take our questionnaire" v-if="!this.isCollapsed" />
+      <LinkButton :link="this.questionnaireButton" v-if="!this.isCollapsed" />
     </div>
   </div>
 </template>
@@ -33,6 +33,10 @@ export default {
         { text: 'Pricing', route: '/home'},
         { text: 'Contact us', route: '/home'},
       ],
+      questionnaireButton: {
+        text: 'Take our questionnaire',
+        url: '',
+      },
       isCollapsed: false,
       collapsePoint: 500,
     }
