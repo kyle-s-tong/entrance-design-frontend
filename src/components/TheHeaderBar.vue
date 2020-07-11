@@ -28,10 +28,10 @@ export default {
       headerBarLinks: [
         { text: 'Home', route: '/home'},
         { text: 'How it works', route: '/home#howitworks'},
-        { text: 'Who we are', route: '/home'},
-        { text: 'Gallery', route: '/home'},
-        { text: 'Pricing', route: '/home'},
-        { text: 'Contact us', route: '/home'},
+        { text: 'Who we are', route: '/home#whoweare'},
+        { text: 'Gallery', route: '/gallery'},
+        { text: 'Pricing', route: '/pricing'},
+        { text: 'Contact us', route: '/contact-us'},
       ],
       questionnaireButton: {
         text: 'Take our questionnaire',

@@ -15,6 +15,7 @@ export const stepDetails = [
     image: require('../assets/steps/step1-darkdesk.jpg'),
   },
   {
+    number: 1,
     title: 'Answer our simple questionnaire',
     description: `You have a home. You want it to look great. So do we! Using the magic of the web,
                   we can transform your house, into your dream home... completely online! No
@@ -22,7 +23,7 @@ export const stepDetails = [
                   services, tailored to your space. Never fear, we also offer in-home services
                   as found in our design packages.`,
     link: {
-      text: 'View our design packages',
+      text: 'View our simple questionnaire',
       // TODO: Change to real route
       route: '/home',
     },
@@ -30,6 +31,7 @@ export const stepDetails = [
     reverse: true,
   },
   {
+    number: 2,
     title: 'Choose your design package',
     description: `You have a home. You want it to look great. So do we! Using the magic of the web,
                   we can transform your house, into your dream home... completely online! No
@@ -44,6 +46,7 @@ export const stepDetails = [
     image: require('../assets/steps/step3-pricingoptions.jpg'),
   },
   {
+    number: 3,
     title: 'Digital collaboration',
     description: `You have a home. You want it to look great. So do we! Using the magic of the web,
                   we can transform your house, into your dream home... completely online! No
@@ -54,6 +57,7 @@ export const stepDetails = [
     reverse: true,
   },
   {
+    number: 4,
     title: 'Your concept design supplied',
     description: `You have a home. You want it to look great. So do we! Using the magic of the web,
                   we can transform your house, into your dream home... completely online! No

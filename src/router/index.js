@@ -2,6 +2,9 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import HomeView from '../views/HomeView.vue';
+import GalleryView from '../views/GalleryView.vue';
+import PricingView from '../views/PricingView.vue';
+import ContactUsView from '../views/ContactUsView.vue';
 
 Vue.use(Router);
 
@@ -21,6 +24,9 @@ export function createRouter () {
     },
     routes: [
       { path: '/home', component: HomeView },
+      { path: '/gallery', component: GalleryView },
+      { path: '/pricing', component: PricingView },
+      { path: '/contact-us', component: ContactUsView },
       { path: '/', redirect: '/home' },
     ]
   })
