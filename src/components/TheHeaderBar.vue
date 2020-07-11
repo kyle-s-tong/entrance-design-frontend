@@ -1,11 +1,13 @@
 <template>
-  <div :class="[isCollapsed ? collapsedNavBar : expandedNavBar]">
-    <HeaderBarLogo :logoClass="'hidden'" />
-    <div class="w-full flex justify-end">
-      <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" />
+  <div :class="['flex w-full justify-center h-16 fixed', this.navBarState]">
+    <div :class="['flex items-end w-1/2', isCollapsed ? 'py-2' : 'flex-col']">
+      <HeaderBarLogo :logoClass="'w-2/12'" v-if="this.isCollapsed" />
+      <div class="w-full flex justify-end">
+        <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" />
+      </div>
+      <HeaderBarLogo :logoClass="'py-24'" v-if="!this.isCollapsed" />
+      <LinkButton text="Take our questionnaire" v-if="!this.isCollapsed" />
     </div>
-    <HeaderBarLogo :logoClass="'py-24'" />
-    <LinkButton text="Take our questionnaire" v-if="!this.isCollapsed" />
   </div>
 </template>
 
@@ -31,10 +33,18 @@ export default {
         { text: 'Pricing', route: '/home'},
         { text: 'Contact us', route: '/home'},
       ],
-      expandedNavBar: 'open flex flex-col items-end w-1/2 fixed',
-      collapsedNavBar: 'collapse flex items-end w-1/2 fixed',
       isCollapsed: false,
-      scrollState: 500,
+      collapsePoint: 500,
+    }
+  },
+  computed: {
+    navBarState: function () {
+      return {
+        'bg-black': this.isCollapsed,
+        'bg-opacity-50': this.isCollapsed,
+        collapse: this.isCollapsed,
+        open: !this.isCollapsed
+      }
     }
   },
   methods: {
@@ -43,7 +53,7 @@ export default {
       const currentScroll = this.scrollTop();
       if (this.scrollTop() === 0) {
         home();
-      } else if (currentScroll > (this.scrollState)) {
+      } else if (currentScroll > (this.collapsePoint)) {
         down();
       }
     },
@@ -69,31 +79,29 @@ export default {
 </script>
 
 <style>
-  /* // Collapse nav bar on scroll down
-  .collapse {
-    animation: collapse .5s ease forwards;
+  /* .collapse {
+    animation: collapse 1s ease forwards;
   }
 
-  // Open nav bar on scroll up
   .open {
-    animation: open .5s ease forwards;
+    animation: open 1s ease forwards;
   }
 
   @keyframes collapse {
     from {
-      opacity: 1;
+      @apply bg-transparent flex-col;
     }
     to {
-      opacity: 0;
+      @apply bg-black flex;
     }
   }
 
   @keyframes open {
     from {
-      opacity: 0;
+      @apply bg-black flex;
     }
     to {
-      opacity: 1;
+      @apply bg-transparent flex-col;
     }
   } */
 </style>
