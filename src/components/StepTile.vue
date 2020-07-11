@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!step.reverse" class="flex">
+  <div v-if="!step.reverse" class="flex" :id="step.id">
     <StepTileText :step="step" />
     <StepTileImage :imageUrl="step.image" />
   </div>

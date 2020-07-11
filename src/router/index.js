@@ -9,7 +9,16 @@ export function createRouter () {
   return new Router({
     mode: 'history',
     fallback: false,
-    scrollBehavior: () => ({ y: 0 }),
+    scrollBehavior: (to) => {
+      if (to.hash) {
+        return {
+          selector: to.hash
+          // , offset: { x: 0, y: 10 }
+        }
+      }
+
+      return { x: 0, y: 0 }
+    },
     routes: [
       { path: '/home', component: HomeView },
       { path: '/', redirect: '/home' },
