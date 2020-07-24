@@ -5,6 +5,7 @@ query getPricings {
   pricings: allPricings {
     id
     title
+    price
     description
     image {
       publicUrl
