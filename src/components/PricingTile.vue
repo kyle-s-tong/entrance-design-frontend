@@ -32,6 +32,7 @@ export default {
   },
   computed: {
     imageUrl: function () {
+      // TODO: parameterise
       return `http://localhost:1337${this.pricing.Image.url}`
     }
   }
