@@ -11,7 +11,8 @@
       </h3>
       <div class="w-full flex">
         <div class="w-1/2 pr-8">
-          <img :src="imageUrl" :alt="pricing.title">
+          <!-- TODO: parameterise -->
+          <img :src="`http://localhost:1337${this.pricing.Image.url}`" :alt="pricing.title">
         </div>
         <VueShowdown :markdown="pricing.Description" class="list-disc w-1/2 pl-8 text-sm" />
       </div>
@@ -29,12 +30,6 @@ export default {
   },
   props: {
     pricing: Object,
-  },
-  computed: {
-    imageUrl: function () {
-      // TODO: parameterise
-      return `http://localhost:1337${this.pricing.Image.url}`
-    }
   }
 }
 </script>
