@@ -27,10 +27,11 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 import TheHeaderBar from '../components/TheHeaderBar';
 import RouteTitle from '../components/RouteTitle';
 import PricingTile from '../components/PricingTile';
-import { getAllPricings } from '../queries/pricing';
 
 export default {
   name: 'PricingView',
@@ -44,10 +45,9 @@ export default {
       pricings: [],
     }
   },
-  apollo: {
-    pricings: {
-      query: getAllPricings,
-    }
+  async mounted() {
+    const response = await axios.get('http://localhost:1337/pricings');
+    this.pricings = response.data;
   }
 }
 </script>
