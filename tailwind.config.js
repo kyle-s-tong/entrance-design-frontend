@@ -280,6 +280,8 @@ module.exports = {
       auto: 'auto',
       ...theme('spacing'),
       '1/2': '50%',
+      '1/5': '20%',
+      '4/5': '80%',
       full: '100%',
       90: '90%',
       screen: '100vh',

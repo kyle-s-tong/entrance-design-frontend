@@ -9,14 +9,7 @@
         <div class="flex flex-col justify-center w-full items-center px-10 pb-4">
           <hr class="w-full xl:w-2/3 border-black">
         </div>
-        <div class="flex w-full xl:w-2/3 px-10 grid grid-cols-3 gap-2 justify-center">
-          <div v-for="gallery in galleries" :key="gallery.Title" class="border-2 border-white relative flex">
-            <router-link :to="`/gallery/${gallery.id}`" class="flex justify-center w-full">
-              <img :src="`http://localhost:1337${gallery.MainImage.url}`" alt="" class="w-full">
-              <p class="absolute bottom-0 text-white bg-black bg-opacity-50 my-2 mx-1 p-1">{{ gallery.Title }}</p>
-            </router-link>
-          </div>
-        </div>
+        <GalleryGrid :galleries="galleries" />
       </div>
     </div>
   </div>
@@ -27,12 +20,14 @@ import axios from 'axios';
 
 import TheHeaderBar from '../components/TheHeaderBar';
 import RouteTitle from '../components/RouteTitle';
+import GalleryGrid from '../components/GalleryGrid';
 
 export default {
   name: 'GalleryView',
   components: {
     TheHeaderBar,
     RouteTitle,
+    GalleryGrid,
   },
   data: function () {
     return {
