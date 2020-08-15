@@ -12,8 +12,8 @@
               <swiper-slide v-for="image in galleryItem.GalleryImages" :key="image.id">
                 <img :src="`http://localhost:1337${image.url}`" alt="">
               </swiper-slide>
-              <div class="swiper-button-prev" slot="button-prev" v-on:click="handleClickedSlide('previous')"></div>
-              <div class="swiper-button-next" slot="button-next" v-on:click="handleClickedSlide('next')"></div>
+              <div class="swiper-button-prev text-black" slot="button-prev" v-on:click="handleClickedSlide('previous')"></div>
+              <div class="swiper-button-next text-black" slot="button-next" v-on:click="handleClickedSlide('next')"></div>
             </swiper>
             <swiper class="swiper w-full h-1/5 box-border p-3" :options="swiperOptionThumbs" ref="thumbs" v-on:click="handleClickedThumb">
               <swiper-slide class="w-1/4 opacity-50" v-for="image in galleryItem.GalleryImages" :key="image.id">
