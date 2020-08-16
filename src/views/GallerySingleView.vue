@@ -7,7 +7,7 @@
     <div class="background" v-if="this.galleryItem">
       <div class="flex flex-col items-center bg-white bg-opacity-75 w-full py-8">
         <div class="flex w-1/2 pb-10">
-          <div class="flex flex-col w-1/2">
+          <div class="flex flex-col w-1/2 pr-6">
             <swiper class="swiper w-full h-4/5" :options="swiperOptions" ref="mainGallery">
               <swiper-slide v-for="image in galleryItem.GalleryImages" :key="image.id">
                 <img :src="`http://localhost:1337${image.url}`" alt="">

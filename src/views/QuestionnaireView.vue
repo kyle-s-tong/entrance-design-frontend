@@ -1,18 +1,20 @@
 <template>
-  <div class="h-full w-full">
-    <div class="flex w-full justify-center h-1/5 bg-black bg-opacity-25">
+  <div class="h-full w-full flex flex-col">
+    <div class="flex w-full flex-none justify-center h-1/5 bg-black bg-opacity-25">
       <TheHeaderBar :isCollapsed="true" :lockBarState="true" />
       <RouteTitle :title="'Design Questionnaire'" />
     </div>
-    <div>
+    <div class="flex flex-col flex-grow">
       <component :is="currentStepComponent" :stepData="currentStepData" v-if="questionnaire"></component>
-      <div>
-        <button v-if="currentStep > 1" v-on:click="goToPreviousStep">
-          Previous
-        </button>
-        <button v-if="currentStep < finalStep" v-on:click="goToNextStep">
-          Next
-        </button>
+      <div class="background">
+        <div class="bg-white bg-opacity-75 flex justify-center">
+          <button v-if="currentStep > 1" v-on:click="goToPreviousStep" class="border-2 p-4 text-lg bg-white border-black">
+            Previous
+          </button>
+          <button v-if="currentStep < finalStep" v-on:click="goToNextStep" class="border-2 p-4 text-lg bg-white border-black">
+            Next
+          </button>
+        </div>
       </div>
     </div>
   </div>
