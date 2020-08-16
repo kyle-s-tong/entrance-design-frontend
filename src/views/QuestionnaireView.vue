@@ -4,14 +4,16 @@
       <TheHeaderBar :isCollapsed="true" :lockBarState="true" />
       <RouteTitle :title="'Design Questionnaire'" />
     </div>
-    <component :is="currentStepComponent" :stepData="currentStepData" v-if="questionnaire"></component>
     <div>
-      <button v-if="currentStep > 1" v-on:click="goToPreviousStep">
-        Previous
-      </button>
-      <button v-if="currentStep < finalStep" v-on:click="goToNextStep">
-        Next
-      </button>
+      <component :is="currentStepComponent" :stepData="currentStepData" v-if="questionnaire"></component>
+      <div>
+        <button v-if="currentStep > 1" v-on:click="goToPreviousStep">
+          Previous
+        </button>
+        <button v-if="currentStep < finalStep" v-on:click="goToNextStep">
+          Next
+        </button>
+      </div>
     </div>
   </div>
 </template>
