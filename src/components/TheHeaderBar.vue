@@ -1,12 +1,12 @@
 <template>
   <div :class="['flex w-full justify-center h-16 fixed', this.navBarState]">
-    <div :class="['flex items-end w-1/2', isCollapsed ? 'py-2' : 'flex-col']">
-      <HeaderBarLogo :logoClass="'w-2/12'" v-if="this.isCollapsed" />
+    <div :class="['flex items-end w-1/2', this.navCollapsed ? 'py-2' : 'flex-col']">
+      <HeaderBarLogo :logoClass="'w-2/12'" v-if="this.navCollapsed" />
       <div class="w-full flex justify-end">
         <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" />
       </div>
       <HeaderBarLogo :logoClass="'py-24'" v-if="!this.isCollapsed" />
-      <LinkButton :link="this.questionnaireButton" v-if="!this.isCollapsed" />
+      <LinkButton :link="this.questionnaireButton" v-if="!this.navCollapsed" />
     </div>
   </div>
 </template>
@@ -23,6 +23,20 @@ export default {
     HeaderBarLink,
     HeaderBarLogo,
   },
+  props: {
+    isCollapsed: {
+      type: Boolean,
+      default: false,
+    },
+    lockBarState: {
+      type: Boolean,
+      default: false,
+    },
+    collapsePoint: {
+      type: Number,
+      default: 500,
+    }
+  },
   data: function () {
     return {
       headerBarLinks: [
@@ -35,24 +49,26 @@ export default {
       ],
       questionnaireButton: {
         text: 'Take our questionnaire',
-        url: '',
+        route: '/questionnaire',
       },
-      isCollapsed: false,
-      collapsePoint: 500,
+      navCollapsed: this.isCollapsed,
     }
   },
   computed: {
     navBarState: function () {
       return {
-        'bg-black': this.isCollapsed,
-        'bg-opacity-50': this.isCollapsed,
-        collapse: this.isCollapsed,
-        open: !this.isCollapsed
+        'bg-black': this.navCollapsed,
+        'bg-opacity-50': this.navCollapsed,
+        collapse: this.navCollapsed,
+        open: !this.navCollapsed
       }
     }
   },
   methods: {
     scrollDetect(home, down) {
+      if (this.lockBarState === true) {
+        return;
+      }
       // Current scroll position
       const currentScroll = this.scrollTop();
       if (this.scrollTop() === 0) {
@@ -67,11 +83,11 @@ export default {
     },
     // Called when scroll is in initial position
     scrollHome() {
-      this.isCollapsed = false;
+      this.navCollapsed = false;
     },
     // Called when scrolled down
     scrollDown() {
-      this.isCollapsed = true;
+      this.navCollapsed = true;
     },
   },
   created() {

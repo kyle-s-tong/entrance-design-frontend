@@ -30,7 +30,7 @@ export function createRouter () {
       { path: '/gallery/:id', component: GallerySingleView },
       { path: '/pricing', component: PricingView },
       { path: '/contact-us', component: ContactUsView },
-      { path: '/questionnaire', component: QuestionnaireView },
+      { path: '/questionnaire', component: QuestionnaireView},
       { path: '/home', redirect: '/' },
     ]
   })

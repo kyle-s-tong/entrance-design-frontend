@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button class="text-white uppercase">
+    <router-link :to="link.route" class="text-white uppercase">
       {{ link.text }}
-    </button>
+    </router-link>
   </div>
 </template>
 

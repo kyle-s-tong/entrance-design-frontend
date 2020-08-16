@@ -50,7 +50,7 @@ export default {
       steps: stepDetails,
       pricingButton: {
         text: 'View our pricing',
-        link: '',
+        route: '/pricing',
       },
       whoWeAreSection: whoWeAre,
     }

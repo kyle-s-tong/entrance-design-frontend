@@ -21,6 +21,6 @@ export const whoWeAre = {
                  of their designs, creating spaces that compliment and enhance lifestyles.</p>`,
   link: {
     text: 'Contact us to get started',
-    url: '',
+    route: '/contact-us',
   }
 }
