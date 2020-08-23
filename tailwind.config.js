@@ -20,6 +20,7 @@ module.exports = {
 
       entrance: {
         gray: '#c8c8c8',
+        'gray-text': '#666666',
       },
 
       gray: {

@@ -1,11 +1,15 @@
 <template>
   <div class="flex justify-center w-1/2 bg-entrance-gray bg-opacity-90">
-    <div class="flex flex-col w-2/3 justify-center">
-      <div class="w-full h-1/2 items-start">
-        <p v-if="step.number" >{{ step.number }}</p>
-        <p>{{ step.title }}</p>
-        <p>{{ step.description }}</p>
-        <LinkButton v-if="step.link" :link="step.link" />
+    <div class="flex flex-col w-2/3 mb-6 justify-center">
+      <div class="w-full items-start text-entrance-gray-text">
+        <div class="flex">
+          <p class="text-white text-6xl px-2" v-if="step.number" >{{ step.number }}:</p>
+          <div class="flex flex-col">
+            <p class="text-3xl uppercase">{{ step.title }}</p>
+            <p class="text-sm">{{ step.description }}</p>
+            <LinkButton v-if="step.link" :link="step.link" />
+          </div>
+        </div>
       </div>
     </div>
   </div>

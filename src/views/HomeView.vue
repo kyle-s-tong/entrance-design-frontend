@@ -12,10 +12,10 @@
     <div class="flex w-full pt-16 pb-32" id="whoweare">
       <div class="flex flex-col w-full items-center">
         <!-- TODO: header instead of p tag -->
-        <div class="w-1/2 pb-2">
+        <div class="w-3/4 xl:w-1/2 pb-2">
           <p class="text-left">Who we are</p>
         </div>
-        <div class="flex w-1/2 justify-center">
+        <div class="flex w-3/4 xl:w-1/2 justify-center">
           <div class="w-1/3">
             <img :src="this.whoWeAreSection.image" class="w-full">
           </div>

@@ -1,11 +1,11 @@
 <template>
   <div :class="['flex w-full justify-center h-16 fixed', this.navBarState]">
-    <div :class="['flex items-end w-1/2', this.navCollapsed ? 'py-2' : 'flex-col']">
+    <div :class="['flex', this.navCollapsed ? 'py-2 w-3/4 items-center' : 'flex-col items-end w-3/4 xl:w-1/2']">
       <HeaderBarLogo :logoClass="'w-2/12'" v-if="this.navCollapsed" />
       <div class="w-full flex justify-end">
-        <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" />
+        <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" :isCollapsed="navCollapsed" />
       </div>
-      <HeaderBarLogo :logoClass="'py-24'" v-if="!this.isCollapsed" />
+      <HeaderBarLogo :logoClass="'py-24'" v-if="!this.navCollapsed" />
       <LinkButton :link="this.questionnaireButton" v-if="!this.navCollapsed" />
     </div>
   </div>

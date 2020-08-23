@@ -24,5 +24,6 @@ export default {
   html, body {
     height: 100%;
     width: 100%;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
   }
 </style>
