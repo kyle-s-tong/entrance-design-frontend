@@ -6,8 +6,8 @@
           <p class="text-white text-6xl px-2" v-if="step.number" >{{ step.number }}:</p>
           <div class="flex flex-col">
             <p class="text-3xl uppercase">{{ step.title }}</p>
-            <p class="text-sm">{{ step.description }}</p>
-            <LinkButton v-if="step.link" :link="step.link" />
+            <p class="text-sm pb-2">{{ step.description }}</p>
+            <LinkButton v-if="step.link" :link="step.link" :linkType="'light'" />
           </div>
         </div>
       </div>

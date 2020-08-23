@@ -8,7 +8,7 @@ export const stepDetails = [
                   services, tailored to your space. Never fear, we also offer in-home services
                   as found in our design packages.`,
     link: {
-      text: 'View our design packages',
+      text: 'view our design packages',
       route: '/pricing',
     },
     image: require('../assets/steps/step1-darkdesk.jpg'),
@@ -18,7 +18,7 @@ export const stepDetails = [
     title: 'Answer our simple questionnaire',
     description: `This will gauge your look & style.`,
     link: {
-      text: 'View our simple questionnaire',
+      text: 'view our simple questionnaire',
       route: '/questionnaire',
     },
     image: require('../assets/steps/step2-lightroom.jpg'),
@@ -29,7 +29,7 @@ export const stepDetails = [
     title: 'Choose your design package',
     description: `Select the package that best suits your needs.`,
     link: {
-      text: 'View our design packages',
+      text: 'view our design packages',
       route: '/pricing',
     },
     image: require('../assets/steps/step3-pricingoptions.jpg'),
