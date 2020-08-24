@@ -37,22 +37,6 @@ export default {
     VueShowdown,
   },
   computed: {
-    name: {
-      get() {
-        return this.$store.state.name;
-      },
-      set (value) {
-        this.$store.commit('setName', { name: value });
-      }
-    },
-    emailAddress: {
-      get() {
-        return this.$store.state.emailAddress;
-      },
-      set (value) {
-        this.$store.commit('setEmailAddress', { emailAddress: value });
-      }
-    },
     imageBaseUrl: function () {
       return process.env.VUE_APP_API_HOST;
     }
