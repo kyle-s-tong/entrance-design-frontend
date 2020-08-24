@@ -7,6 +7,17 @@
       </div>
       <HeaderBarLogo :logoClass="'py-24'" v-if="!this.navCollapsed" />
       <LinkButton :link="this.questionnaireButton" v-if="!this.navCollapsed" />
+      <div class="flex justify-end w-2/12 py-8" v-if="!this.navCollapsed">
+        <a href="https://www.facebook.com/Entrancedesignnz16" class="mx-2">
+          <img src="../assets/social/facebook.png" class="icon" alt="Link to Entrance Design's Facebook page">
+        </a>
+        <a href="https://www.instagram.com/entrancedesignnz" class="mx-2">
+          <img src="../assets/social/instagram.png" class="icon" alt="Link to Entrance Design's Instagram page">
+        </a>
+        <a href="https://nz.pinterest.com/entrancedsgn" class="mx-2">
+          <img src="../assets/social/pinterest.png" class="icon" alt="Link to Entrance Design's Pinterest page">
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -99,6 +110,9 @@ export default {
 </script>
 
 <style>
+  .icon {
+    height: 30px;
+  }
   /* .collapse {
     animation: collapse 1s ease forwards;
   }
