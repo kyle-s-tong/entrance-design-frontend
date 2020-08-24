@@ -1,6 +1,6 @@
 <template>
-  <div class="self-end w-1/2 text-white">
-    <h3 class="text-3xl">{{ title }}</h3>
+  <div class="self-end w-2/3 text-white">
+    <h1 class="text-4xl">{{ title }}</h1>
   </div>
 </template>
 

@@ -1,12 +1,12 @@
 <template>
   <div class="w-full h-full">
-    <div class="flex w-full justify-center h-1/2 bg-black bg-opacity-25">
+    <div class="flex w-full justify-center h-3/4 bg-black bg-opacity-25">
       <TheHeaderBar />
       <RouteTitle :title="'Gallery'" />
     </div>
     <div class="background">
       <div class="flex flex-col items-center bg-white bg-opacity-50 w-full py-8">
-        <div class="flex flex-col justify-center w-full items-center px-10 pb-4">
+        <div class="flex flex-col justify-center w-full items-center pb-4">
           <hr class="w-full xl:w-2/3 border-black">
         </div>
         <GalleryGrid :galleries="galleries" />
