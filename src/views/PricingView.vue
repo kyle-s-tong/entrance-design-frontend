@@ -7,7 +7,7 @@
     <div class="background">
       <div class="flex flex-col items-center bg-white bg-opacity-50 w-full">
         <div class="flex w-2/3 flex-col p-8 bg-white m-4">
-          <h2 class="text-center text-3xl">The easiest way to decorate your home</h2>
+          <h2 class="text-center text-4xl">The easiest way to interior decorate your home</h2>
           <p class="px-16 pb-8 pt-4 text-sm">
             You have a home. You want it to look great. So do we! Using the magic of the web, we will
             interior decorate your home completely online. No appointments. No hassles or
@@ -46,7 +46,7 @@ export default {
     }
   },
   async mounted() {
-    const response = await axios.get('http://localhost:1337/pricings');
+    const response = await axios.get(`${process.env.VUE_APP_API_HOST}/pricings`);
     this.pricings = response.data;
   }
 }

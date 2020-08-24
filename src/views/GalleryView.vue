@@ -36,7 +36,7 @@ export default {
   },
   async mounted() {
     // TODO: handle errors
-    const response = await axios.get('http://localhost:1337/galleries');
+    const response = await axios.get(`${process.env.VUE_APP_API_HOST}/galleries`);
     this.galleries = response.data;
   },
 }

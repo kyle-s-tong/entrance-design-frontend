@@ -16,7 +16,7 @@
           </div>
           <div class="grid grid-cols-3 gap-4">
             <div v-for="image in stepData.Images" :key="image.id">
-              <img :src="`http://localhost:1337${image.url}`" alt="">
+              <img :src="`${process.env.VUE_APP_API_HOST}${image.url}`" alt="">
             </div>
           </div>
         </div>

@@ -83,7 +83,7 @@ export default {
   },
   async mounted() {
     // TODO: handle errors
-    const response = await axios.get('http://localhost:1337/questionnaires');
+    const response = await axios.get(`${process.env.VUE_APP_API_HOST}/questionnaires`);
     this.questionnaire = response.data;
     this.finalStep = 2;
   },
