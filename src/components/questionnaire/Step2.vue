@@ -15,8 +15,8 @@
             </div>
           </div>
           <div class="grid grid-cols-3 gap-6">
-            <div v-for="image in stepData.Images" :key="image.id">
-              <img :src="`${imageBaseUrl}${image.url}`" alt="">
+            <div v-for="image in stepData.Images" :key="image.id" class="shadow-lg cursor-pointer">
+              <img :src="`${imageBaseUrl}${image.url}`" alt="" class="w-full shadow-lg transform hover:scale-110 duration-100">
             </div>
           </div>
         </div>
