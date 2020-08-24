@@ -29,7 +29,7 @@
 import { VueShowdown } from 'vue-showdown';
 
 export default {
-  name: 'Step2',
+  name: 'Step6',
   props: {
     stepData: Object
   },

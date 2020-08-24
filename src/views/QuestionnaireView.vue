@@ -8,12 +8,14 @@
       <component :is="currentStepComponent" :stepData="currentStepData" v-if="questionnaire"></component>
       <div class="background">
         <div class="bg-white bg-opacity-90 flex justify-center pb-16">
-          <button v-if="currentStep > 1" v-on:click="goToPreviousStep" class="border-2 py-4 px-6 text-lg bg-white border-black">
-            Previous
-          </button>
-          <button v-if="currentStep < finalStep" v-on:click="goToNextStep" class="border-2 py-4 px-6 text-lg bg-white border-black">
-            Next
-          </button>
+          <div :class="['flex grid', currentStep > 1 ? 'grid-cols-2 gap-2' : '']">
+            <button v-if="currentStep > 1" v-on:click="goToPreviousStep" class="border-2 py-4 px-6 text-lg bg-white border-black">
+              Previous
+            </button>
+            <button v-if="currentStep < finalStep" v-on:click="goToNextStep" class="border-2 py-4 px-6 text-lg bg-white border-black">
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -23,8 +25,14 @@
 <script>
 import TheHeaderBar from '../components/TheHeaderBar';
 import RouteTitle from '../components/RouteTitle';
+// TODO: refactor this stuff later since it's not DRY at all
 import Step1 from '../components/questionnaire/Step1';
 import Step2 from '../components/questionnaire/Step2';
+import Step3 from '../components/questionnaire/Step3';
+import Step4 from '../components/questionnaire/Step4';
+import Step5 from '../components/questionnaire/Step5';
+import Step6 from '../components/questionnaire/Step6';
+import Step7 from '../components/questionnaire/Step7';
 
 import axios from 'axios';
 
@@ -35,6 +43,11 @@ export default {
     RouteTitle,
     Step1,
     Step2,
+    Step3,
+    Step4,
+    Step5,
+    Step6,
+    Step7,
   },
   data: function () {
     return {
@@ -85,7 +98,7 @@ export default {
     // TODO: handle errors
     const response = await axios.get(`${process.env.VUE_APP_API_HOST}/questionnaires`);
     this.questionnaire = response.data;
-    this.finalStep = 2;
+    this.finalStep = response.data.length;
   },
 }
 </script>
