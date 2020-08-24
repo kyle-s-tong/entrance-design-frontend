@@ -1,22 +1,24 @@
 <template>
   <div class="w-full h-full background">
-    <div class="w-full h-full bg-white bg-opacity-75 flex justify-center">
-      <div class="w-1/2 h-full flex justify-center">
-        <div class="flex flex-col h-full">
+    <div class="w-full h-full bg-white bg-opacity-90 flex justify-center">
+      <div class="w-full h-full flex justify-center">
+        <div class="flex flex-col w-1/2 h-full pt-8">
           <div class="flex flex-col items-center py-4">
-            <div>
+            <div class="py-6">
               {{ stepData.StepNumber }}
             </div>
-            <div>
-              {{ stepData.Title }}
+            <div class="py-6">
+              <h2 class="uppercase text-2xl">{{ stepData.Title }}</h2>
             </div>
             <div>
-              <VueShowdown :markdown="stepData.Description" />
+              <VueShowdown class="text-center leading-8" :markdown="stepData.Description" />
             </div>
           </div>
           <div class="flex flex-col flex-grow">
-            <input type="text" name="name" id="name" v-model="name" placeholder="name" class="p-1 m-1">
-            <input type="text" name="emailAddress" id="emailAddress" v-model="emailAddress" placeholder="email address" class="p-1 m-1">
+            <label for="name">Name *</label>
+            <input type="text" name="name" id="name" v-model="name" placeholder="name" class="my-2 p-2 border border-entrance-gray rounded">
+            <label for="emailAddress">Email address *</label>
+            <input type="text" name="emailAddress" id="emailAddress" v-model="emailAddress" placeholder="email address" class="my-2 p-2 border border-entrance-gray rounded">
           </div>
         </div>
       </div>
@@ -58,3 +60,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .placeholder-padding::placeholder {
+    padding: 0.5rem;
+  }
+</style>

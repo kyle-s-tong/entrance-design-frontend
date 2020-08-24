@@ -7,11 +7,11 @@
     <div class="flex flex-col flex-grow">
       <component :is="currentStepComponent" :stepData="currentStepData" v-if="questionnaire"></component>
       <div class="background">
-        <div class="bg-white bg-opacity-75 flex justify-center">
-          <button v-if="currentStep > 1" v-on:click="goToPreviousStep" class="border-2 p-4 text-lg bg-white border-black">
+        <div class="bg-white bg-opacity-90 flex justify-center pb-16">
+          <button v-if="currentStep > 1" v-on:click="goToPreviousStep" class="border-2 py-4 px-6 text-lg bg-white border-black">
             Previous
           </button>
-          <button v-if="currentStep < finalStep" v-on:click="goToNextStep" class="border-2 p-4 text-lg bg-white border-black">
+          <button v-if="currentStep < finalStep" v-on:click="goToNextStep" class="border-2 py-4 px-6 text-lg bg-white border-black">
             Next
           </button>
         </div>
