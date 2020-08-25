@@ -10,6 +10,7 @@ export default new Vuex.Store({
   state: {
     name: '',
     emailAddress: '',
+    selectedImages: [],
   },
   mutations: {
     setName(state, payload) {
@@ -17,6 +18,14 @@ export default new Vuex.Store({
     },
     setEmailAddress(state, payload) {
       state.emailAddress = payload.emailAddress;
+    },
+    addSelectedImage(state, payload) {
+      state.selectedImages.push(payload.image);
+    },
+  },
+  getters: {
+    getSelectedImageByStep: (state) => (step) => {
+      return state.selectedImages.find(selectedImages => selectedImages.stepNumber === step)
     },
   }
 });
