@@ -20,7 +20,15 @@ export default new Vuex.Store({
       state.emailAddress = payload.emailAddress;
     },
     addSelectedImage(state, payload) {
-      state.selectedImages.push(payload.image);
+      const selectionExists = state.selectedImages.findIndex(image => image.stepNumber === payload.image.stepNumber);
+      if (selectionExists !== -1) {
+        state.selectedImages.splice(selectionExists, 1);
+        state.selectedImages.push(payload.image);
+      } else {
+        state.selectedImages.push(payload.image);
+      }
+
+      console.log(state.selectedImages);
     },
   },
   getters: {
