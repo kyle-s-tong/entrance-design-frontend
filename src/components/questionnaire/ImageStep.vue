@@ -19,7 +19,7 @@
               <img 
                 :src="`${imageBaseUrl}${image.url}`"
                 :alt="image.alternativeText" 
-                :class="['w-full shadow-lg transform hover:scale-110 duration-100', selectedImage && selectedImage.id === image.id ? 'scale-110' : '']">
+                :class="['w-full shadow-lg transform hover:scale-105 duration-100', selectedImage && selectedImage.id === image.id ? 'scale-105 border-2 border-green-400' : '']">
             </div>
           </div>
         </div>
@@ -53,9 +53,6 @@ export default {
     selectedImage: function () {
       return this.$store.getters.getSelectedImageByStep(this.stepData.StepNumber)
     }
-  },
-  mounted() {
-    console.log(this.stepData);
   }
 }
 </script>
