@@ -32,38 +32,38 @@
             <form class="flex flex-col">
               <div class="flex">
                 <!-- TODO: Componentise -->
-                <div class="flex flex-col p-2 flex-grow">
+                <div class="flex flex-col p-2 w-1/3">
                   <label for="name">Name</label>
-                  <input id="name" v-model="formData.name">
+                  <input id="name" v-model="formData.name" required placeholder="name" class="placeholder-padding border border-entrance-gray rounded p-1">
                 </div>
                 <!-- TODO: Componentise -->
-                <div class="flex flex-col p-2 flex-grow">
+                <div class="flex flex-col p-2 w-1/3">
                   <label for="email">Email address</label>
-                  <input id="email" v-model="formData.email">
+                  <input id="email" v-model="formData.email" required placeholder="email address" class="placeholder-padding border border-entrance-gray rounded p-1">
                 </div>
                 <!-- TODO: Componentise -->
-                <div class="flex flex-col p-2 flex-grow">
+                <div class="flex flex-col p-2 w-1/3">
                   <label for="phone">Phone number</label>
-                  <input id="phone" v-model="formData.phone">
+                  <input id="phone" v-model="formData.phone" placeholder="phone number" class="placeholder-padding border border-entrance-gray rounded p-1">
                 </div>
               </div>
               <div class="w-full">
                 <!-- TODO: Componentise -->
                 <div class="flex flex-col p-2">
                   <label for="subject">Subject</label>
-                  <input id="subject" v-model="formData.subject">
+                  <input id="subject" v-model="formData.subject" required placeholder="subject" class="placeholder-padding border border-entrance-gray rounded p-1">
                 </div>
               </div>
               <div>
                 <!-- TODO: Componentise -->
                 <div class="flex flex-col p-2">
                   <label for="message">Message</label>
-                  <textarea id="message" v-model="formData.message"></textarea>
+                  <textarea id="message" v-model="formData.message" required placeholder="write your message here.." class="placeholder-padding border border-entrance-gray rounded p-1"></textarea>
                 </div>
               </div>
               <vue-recaptcha class="p-2" :sitekey="this.siteKey"></vue-recaptcha>
               <!-- TODO: Style and wire up -->
-              <button class="m-2 p-2 mt-12 border self-start" v-on:click="sendEmail">Submit</button>
+              <button class="m-2 p-2 mt-8 rounded border border-white self-start bg-entrance-gray text-white uppercase hover:bg-entrance-gray-text" v-on:click="sendEmail">Submit</button>
             </form>
           </div>
         </div>
@@ -73,6 +73,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import VueRecaptcha from 'vue-recaptcha';
 
 import TheHeaderBar from '../components/TheHeaderBar';
@@ -98,8 +99,14 @@ export default {
     }
   },
   methods: {
-    sendEmail: function() {
-      console.log(this.formData);
+    sendEmail: async function (event) {
+      event.preventDefault();
+      // TODO: Change server side to send nice email.
+      await axios.post(`${process.env.VUE_APP_API_HOST}/email`, {
+        "to": "kyle.simon.tong@gmail.com",
+        "subject": "Contact form enquiry",
+        "text": JSON.stringify(this.formData),
+      });
     }
   }
 }

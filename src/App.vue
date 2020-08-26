@@ -26,4 +26,8 @@ export default {
     width: 100%;
     font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
   }
+
+  .placeholder-padding {
+    text-indent: 0.25rem;
+  }
 </style>

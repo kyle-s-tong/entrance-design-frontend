@@ -60,9 +60,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  .placeholder-padding::placeholder {
-    padding: 0.5rem;
-  }
-</style>
