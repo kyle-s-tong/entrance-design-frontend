@@ -54,9 +54,6 @@ export default {
         this.$store.commit('setEmailAddress', { emailAddress: value });
       }
     }
-  },
-  mounted() {
-    console.log(this.stepData);
   }
 }
 </script>

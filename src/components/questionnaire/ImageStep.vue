@@ -15,11 +15,11 @@
             </div>
           </div>
           <div class="grid grid-cols-3 gap-6">
-            <div v-for="image in stepData.Images" :key="image.id" class="shadow-lg cursor-pointer" v-on:click="selectImage(image)">
-              <img 
-                :src="`${imageBaseUrl}${image.url}`"
-                :alt="image.alternativeText" 
-                :class="['w-full shadow-lg transform hover:scale-105 duration-100', selectedImage && selectedImage.id === image.id ? 'scale-105 border-2 border-green-400' : '']">
+            <div v-for="option in stepData.questionnaire_options" :key="option.id" class="shadow-lg cursor-pointer" v-on:click="selectImage(option.Image)">
+              <img
+                :src="`${imageBaseUrl}${option.Image.url}`"
+                :alt="option.Image.alternativeText"
+                :class="['w-full shadow-lg transform hover:scale-105 duration-100', selectedImage && selectedImage.id === option.Image.id ? 'scale-105 border-2 border-green-400' : '']">
             </div>
           </div>
         </div>

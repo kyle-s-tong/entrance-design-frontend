@@ -15,6 +15,9 @@
             <button v-if="currentStep < finalStep" v-on:click="goToNextStep" class="border-2 py-4 px-6 text-lg bg-white border-black">
               Next
             </button>
+            <button v-if="currentStep === finalStep" v-on:click="submitQuestionnaire" class="border-2 py-4 px-6 text-lg bg-white border-black">
+              Get result
+            </button>
           </div>
         </div>
       </div>
@@ -72,6 +75,8 @@ export default {
       }
 
       this.currentStep = previousStep;
+    },
+    async submitQuestionnaire() {
     }
   },
   computed: {
