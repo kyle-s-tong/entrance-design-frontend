@@ -10,7 +10,7 @@ export default new Vuex.Store({
   state: {
     name: '',
     emailAddress: '',
-    selectedImages: [],
+    selectedOptions: [],
   },
   mutations: {
     setName(state, payload) {
@@ -19,21 +19,27 @@ export default new Vuex.Store({
     setEmailAddress(state, payload) {
       state.emailAddress = payload.emailAddress;
     },
-    addSelectedImage(state, payload) {
-      const selectionExists = state.selectedImages.findIndex(image => image.stepNumber === payload.image.stepNumber);
+    addSelectedOption(state, payload) {
+      const selectionExists = state.selectedOptions.findIndex(option => option.stepNumber === payload.option.stepNumber);
       if (selectionExists !== -1) {
-        state.selectedImages.splice(selectionExists, 1);
-        state.selectedImages.push(payload.image);
+        state.selectedOptions.splice(selectionExists, 1);
+        state.selectedOptions.push(payload.option);
       } else {
-        state.selectedImages.push(payload.image);
+        state.selectedOptions.push(payload.option);
       }
-
-      console.log(state.selectedImages);
-    },
+    }
   },
   getters: {
-    getSelectedImageByStep: (state) => (step) => {
-      return state.selectedImages.find(selectedImages => selectedImages.stepNumber === step)
+    getSelectedOptionByStep: (state) => (step) => {
+      return state.selectedOptions.find(selectedOptions => selectedOptions.stepNumber === step)
     },
-  }
+    getFullResults: (state) => () => {
+      return state.selectedOptions.map((option) => {
+        return {
+          step: option.stepNumber,
+          score: option.CategoryValues['category-map'],
+        }
+      })
+    }
+  },
 });

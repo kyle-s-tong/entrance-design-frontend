@@ -15,11 +15,11 @@
             </div>
           </div>
           <div class="grid grid-cols-3 gap-6">
-            <div v-for="option in stepData.questionnaire_options" :key="option.id" class="shadow-lg cursor-pointer" v-on:click="selectImage(option.Image)">
+            <div v-for="option in stepData.questionnaire_options" :key="option.id" class="shadow-lg cursor-pointer" v-on:click="selectOption(option)">
               <img
                 :src="`${imageBaseUrl}${option.Image.url}`"
                 :alt="option.Image.alternativeText"
-                :class="['w-full shadow-lg transform hover:scale-105 duration-100', selectedImage && selectedImage.id === option.Image.id ? 'scale-105 border-2 border-green-400' : '']">
+                :class="['w-full shadow-lg transform hover:scale-105 duration-100', selectedOption && selectedOption.id === option.id ? 'scale-105 border-2 border-green-400' : '']">
             </div>
           </div>
         </div>
@@ -40,18 +40,18 @@ export default {
     VueShowdown,
   },
   methods: {
-    selectImage: function (image) {
-      image.stepNumber = this.stepData.StepNumber;
+    selectOption: function (option) {
+      option.stepNumber = this.stepData.StepNumber;
 
-      this.$store.commit('addSelectedImage', { image });
+      this.$store.commit('addSelectedOption', { option });
     }
   },
   computed: {
     imageBaseUrl: function () {
       return process.env.VUE_APP_API_HOST;
     },
-    selectedImage: function () {
-      return this.$store.getters.getSelectedImageByStep(this.stepData.StepNumber)
+    selectedOption: function () {
+      return this.$store.getters.getSelectedOptionByStep(this.stepData.StepNumber)
     }
   }
 }
