@@ -27,6 +27,8 @@ export default new Vuex.Store({
       } else {
         state.selectedOptions.push(payload.option);
       }
+
+      console.log(state.selectedOptions);
     }
   },
   getters: {

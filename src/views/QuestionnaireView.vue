@@ -77,6 +77,27 @@ export default {
       this.currentStep = previousStep;
     },
     async submitQuestionnaire() {
+      // From a state point of view these are full results, but from a questionnaire point of view,
+      // they are raw because they are uncalculated, hence the variable name change.
+      const rawResults = this.$store.getters.getFullResults();
+      const calculatedResults = this.parseQuestionnaireResults(rawResults);
+      this.$router.push({ name: 'results', params: { results: calculatedResults } });
+    },
+    parseQuestionnaireResults(results) {
+      const sumResults = {};
+
+      results.forEach((result) => {
+        const { score } = result;
+        for (const category in score) {
+          if (sumResults[category] !== undefined) {
+            sumResults[category] += score[category];
+          } else {
+            sumResults[category] = score[category];
+          }
+        }
+      })
+
+      return sumResults;
     }
   },
   computed: {

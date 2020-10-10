@@ -7,6 +7,7 @@ import GallerySingleView from '../views/GallerySingleView.vue';
 import PricingView from '../views/PricingView.vue';
 import ContactUsView from '../views/ContactUsView.vue';
 import QuestionnaireView from '../views/QuestionnaireView.vue';
+import QuestionnaireResultsView from '../views/QuestionnaireResultsView.vue';
 
 Vue.use(Router);
 
@@ -31,6 +32,12 @@ export function createRouter () {
       { path: '/pricing', component: PricingView },
       { path: '/contact-us', component: ContactUsView },
       { path: '/questionnaire', component: QuestionnaireView},
+      {
+        path: '/questionnaire/results',
+        name: 'results',
+        component: QuestionnaireResultsView,
+        props: true
+      },
       { path: '/home', redirect: '/' },
     ]
   })
