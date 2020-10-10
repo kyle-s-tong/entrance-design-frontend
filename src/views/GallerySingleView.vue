@@ -10,20 +10,20 @@
           <div class="flex flex-col w-1/2 pr-6">
             <swiper class="swiper w-full h-4/5" :options="swiperOptions" ref="mainGallery">
               <swiper-slide v-for="image in galleryItem.GalleryImages" :key="image.id">
-                <img :src="`${process.env.VUE_APP_API_HOST}${image.url}`" alt="">
+                <img :src="`${imageBaseUrl}${image.url}`" alt="">
               </swiper-slide>
               <div class="swiper-button-prev text-black" slot="button-prev" v-on:click="handleClickedSlide('previous')"></div>
               <div class="swiper-button-next text-black" slot="button-next" v-on:click="handleClickedSlide('next')"></div>
             </swiper>
             <swiper class="swiper w-full h-1/5 box-border p-3" :options="swiperOptionThumbs" ref="thumbs" v-on:click="handleClickedThumb">
               <swiper-slide class="w-1/4 opacity-50" v-for="image in galleryItem.GalleryImages" :key="image.id">
-                <img :src="`${process.env.VUE_APP_API_HOST}${image.url}`" alt="">
+                <img :src="`${imageBaseUrl}${image.url}`" alt="">
               </swiper-slide>
             </swiper>
           </div>
           <div class="w-1/2">
             <h2>{{ galleryItem.Title }}</h2>
-            <img :src="`${process.env.VUE_APP_API_HOST}${galleryItem.MainImage.url}`" alt="">
+            <img :src="`${imageBaseUrl}${galleryItem.MainImage.url}`" alt="">
             <br>
             <VueShowdown :markdown="galleryItem.Description" />
           </div>
@@ -83,6 +83,11 @@ export default {
         touchRatio: 0.2,
         slideToClickedSlide: true
       },
+    }
+  },
+  computed: {
+    imageBaseUrl: function () {
+      return process.env.VUE_APP_API_HOST;
     }
   },
   methods: {
