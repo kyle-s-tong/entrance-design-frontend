@@ -10,6 +10,7 @@ export default new Vuex.Store({
   state: {
     name: '',
     emailAddress: '',
+    finalResult: '',
     selectedOptions: [],
   },
   mutations: {
@@ -27,8 +28,9 @@ export default new Vuex.Store({
       } else {
         state.selectedOptions.push(payload.option);
       }
-
-      console.log(state.selectedOptions);
+    },
+    setFinalResult(state, payload) {
+      state.finalResult = payload.calculatedFinalResult;
     }
   },
   getters: {
@@ -42,6 +44,9 @@ export default new Vuex.Store({
           score: option.CategoryValues['category-map'],
         }
       })
+    },
+    getFinalResult: (state) => () => {
+      return state.finalResult;
     }
   },
 });

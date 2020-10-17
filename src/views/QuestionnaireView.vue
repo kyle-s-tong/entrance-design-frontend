@@ -80,8 +80,10 @@ export default {
       // From a state point of view these are full results, but from a questionnaire point of view,
       // they are raw because they are uncalculated, hence the variable name change.
       const rawResults = this.$store.getters.getFullResults();
-      const calculatedResults = this.parseQuestionnaireResults(rawResults);
-      this.$router.push({ name: 'results', params: { results: calculatedResults } });
+      const calculatedFinalResult = this.parseQuestionnaireResults(rawResults);
+      this.$store.commit('setFinalResult', { calculatedFinalResult });
+
+      this.$router.push({ path: 'questionnaire/results' });
     },
     parseQuestionnaireResults(results) {
       const sumResults = {};
@@ -97,7 +99,11 @@ export default {
         }
       })
 
-      return sumResults;
+      const resultValues = Object.values(sumResults);
+      const max = Math.max(...resultValues);
+      const highestScore = Object.keys(sumResults).find(key => sumResults[key] === max);
+
+      return highestScore;
     }
   },
   computed: {

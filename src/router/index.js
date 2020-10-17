@@ -32,12 +32,7 @@ export function createRouter () {
       { path: '/pricing', component: PricingView },
       { path: '/contact-us', component: ContactUsView },
       { path: '/questionnaire', component: QuestionnaireView},
-      {
-        path: '/questionnaire/results',
-        name: 'results',
-        component: QuestionnaireResultsView,
-        props: true
-      },
+      { path: '/questionnaire/results', component: QuestionnaireResultsView },
       { path: '/home', redirect: '/' },
     ]
   })
