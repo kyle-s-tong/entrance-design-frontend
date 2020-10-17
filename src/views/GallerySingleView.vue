@@ -7,32 +7,32 @@
     <div class="background" v-if="this.galleryItem">
       <div class="flex flex-col items-center bg-white bg-opacity-75 w-full py-8">
         <div class="flex w-1/2 pb-10">
-          <div class="flex flex-col w-1/2 pr-6">
-            <swiper class="swiper w-full h-4/5" :options="swiperOptions" ref="mainGallery">
-              <swiper-slide v-for="image in galleryItem.GalleryImages" :key="image.id">
+          <div class="flex flex-col w-1/2 pr-10">
+            <swiper class="swiper w-full h-4/5 flex flex-col items-center" :options="swiperOptions" ref="mainGallery">
+              <swiper-slide v-for="image in galleryItem.GalleryImages" class="flex items-center" :key="image.id">
                 <img :src="`${imageBaseUrl}${image.url}`" alt="">
               </swiper-slide>
               <div class="swiper-button-prev text-black" slot="button-prev" v-on:click="handleClickedSlide('previous')"></div>
               <div class="swiper-button-next text-black" slot="button-next" v-on:click="handleClickedSlide('next')"></div>
             </swiper>
             <swiper class="swiper w-full h-1/5 box-border p-3" :options="swiperOptionThumbs" ref="thumbs" v-on:click="handleClickedThumb">
-              <swiper-slide class="w-1/4 opacity-50" v-for="image in galleryItem.GalleryImages" :key="image.id">
+              <swiper-slide class="w-1/4 opacity-50 flex items-center" v-for="image in galleryItem.GalleryImages" :key="image.id">
                 <img :src="`${imageBaseUrl}${image.url}`" alt="">
               </swiper-slide>
             </swiper>
           </div>
-          <div class="w-1/2">
-            <h2>{{ galleryItem.Title }}</h2>
-            <img :src="`${imageBaseUrl}${galleryItem.MainImage.url}`" alt="">
+          <div class="w-1/2 flex flex-col items-center">
+            <h2 class="text-5xl">{{ galleryItem.Title }}</h2>
+            <img :src="`${imageBaseUrl}${galleryItem.MainImage.url}`" alt="" class="py-8">
             <br>
-            <VueShowdown :markdown="galleryItem.Description" />
+            <VueShowdown :markdown="galleryItem.Description" class="text-justify" />
           </div>
         </div>
-        <div class="flex flex-col w-1/2 py-4">
+        <div class="flex flex-col py-4">
           <div class="flex flex-col justify-center w-full items-center px-10 pb-4">
             <hr class="w-full border-black">
           </div>
-          <div class="flex w-3/4 pb-16">
+          <div class="flex w-full pb-16">
             <GalleryGrid :galleries="galleries" />
           </div>
         </div>
@@ -137,6 +137,6 @@ export default {
 
 <style>
   .swiper-wrapper .swiper-slide-active {
-        opacity: 1;
-      }
+    opacity: 1;
+  }
 </style>
