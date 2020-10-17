@@ -47,6 +47,12 @@ export default new Vuex.Store({
     },
     getFinalResult: (state) => () => {
       return state.finalResult;
+    },
+    getName: (state) => () => {
+      return state.name;
+    },
+    getEmailAddress: (state) => () => {
+      return state.emailAddress;
     }
   },
 });

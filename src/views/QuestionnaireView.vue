@@ -5,7 +5,7 @@
       <RouteTitle :title="'Design Questionnaire'" />
     </div>
     <div class="flex flex-col flex-grow">
-      <component :is="currentStepComponent" :stepData="currentStepData" v-if="questionnaire"></component>
+      <component :is="currentStepComponent" :stepData="currentStepData" :errors="errors" v-if="questionnaire"></component>
       <div class="background">
         <div class="bg-white bg-opacity-90 flex justify-center pb-16">
           <div :class="['flex grid', currentStep > 1 ? 'grid-cols-2 gap-2' : '']">
@@ -54,6 +54,7 @@ export default {
   },
   data: function () {
     return {
+      errors: [],
       questionnaire: null,
       currentStep: 1,
       finalStep: null,
@@ -61,9 +62,16 @@ export default {
   },
   methods: {
     goToNextStep() {
-      const nextStep = this.currentStep + 1
+      const nextStep = this.currentStep + 1;
       if (nextStep > this.finalStep) {
         return;
+      }
+
+      if (this.currentStep === 1) {
+        const validated = this.validateFirstStep();
+        if (validated === false) {
+          return;
+        }
       }
 
       this.currentStep = nextStep;
@@ -75,6 +83,22 @@ export default {
       }
 
       this.currentStep = previousStep;
+    },
+    validateFirstStep() {
+      if (this.$store.getters.getName() && this.$store.getters.getEmailAddress()) {
+        return true;
+      }
+
+      this.errors = [];
+
+      if (!this.$store.getters.getName()) {
+        this.errors.push('Name is required.');
+      }
+      if (!this.$store.getters.getEmailAddress()) {
+        this.errors.push('Email is required.');
+      }
+
+      return false;
     },
     async submitQuestionnaire() {
       // From a state point of view these are full results, but from a questionnaire point of view,

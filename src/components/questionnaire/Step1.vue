@@ -15,6 +15,12 @@
             </div>
           </div>
           <div class="flex flex-col flex-grow">
+            <p v-if="errors.length" class="text-red-500 py-2">
+              <b>Please add in the following field(s):</b>
+              <ul>
+                <li v-for="error in errors" :key="error">{{ error }}</li>
+              </ul>
+            </p>
             <label for="name">Name *</label>
             <input type="text" name="name" id="name" v-model="name" placeholder="name" class="my-2 p-2 border border-entrance-gray rounded">
             <label for="emailAddress">Email address *</label>
@@ -32,7 +38,8 @@ import { VueShowdown } from 'vue-showdown';
 export default {
   name: 'Step1',
   props: {
-    stepData: Object
+    stepData: Object,
+    errors: Array
   },
   components: {
     VueShowdown,
