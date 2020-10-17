@@ -11,7 +11,7 @@
       </h3>
       <div class="w-full flex">
         <div class="w-1/2 pr-8" v-if="this.pricing.Image">
-          <img :src="`${process.env.VUE_APP_API_HOST}${this.pricing.Image.url}`" :alt="pricing.title">
+          <img :src="`${imageBaseUrl}${this.pricing.Image.url}`" :alt="pricing.title">
         </div>
         <VueShowdown :markdown="pricing.Description" class="list-disc w-1/2 pl-8 text-sm" />
       </div>
@@ -29,6 +29,11 @@ export default {
   },
   props: {
     pricing: Object,
+  },
+  computed: {
+    imageBaseUrl: function () {
+      return process.env.VUE_APP_API_HOST;
+    }
   }
 }
 </script>
