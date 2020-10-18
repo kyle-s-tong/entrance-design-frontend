@@ -13,7 +13,10 @@
         <div class="w-1/2 pr-8" v-if="this.pricing.Image">
           <img :src="`${imageBaseUrl}${this.pricing.Image.url}`" :alt="pricing.title">
         </div>
-        <VueShowdown :markdown="pricing.Description" class="list-disc w-1/2 pl-8 text-sm" />
+        <div class="flex flex-col w-1/2">
+          <VueShowdown :markdown="pricing.Description" class="list-disc pl-8 text-sm" />
+          <LinkButton :link="this.questionnaireButton" :linkType="light" class="pt-8 pl-8" />
+        </div>
       </div>
     </div>
   </div>
@@ -21,14 +24,24 @@
 
 <script>
 import { VueShowdown } from 'vue-showdown';
+import LinkButton from './LinkButton';
 
 export default {
   name: 'PricingTile',
   components: {
     VueShowdown,
+    LinkButton,
   },
   props: {
     pricing: Object,
+  },
+  data: function () {
+    return {
+      questionnaireButton: {
+        text: 'Click here to get started',
+        route: '/questionnaire',
+      },
+    }
   },
   computed: {
     imageBaseUrl: function () {

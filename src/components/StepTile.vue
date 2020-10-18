@@ -1,10 +1,10 @@
 <template>
   <div v-if="!step.reverse" class="flex" :id="step.id">
     <StepTileText :step="step" />
-    <StepTileImage :imageUrl="step.image" />
+    <StepTileImage :imageUrl="step.image" class="hidden md:flex" />
   </div>
   <div v-else class="flex">
-    <StepTileImage :imageUrl="step.image" />
+    <StepTileImage :imageUrl="step.image" class="hidden md:flex" />
     <StepTileText :step="step" />
   </div>
 </template>

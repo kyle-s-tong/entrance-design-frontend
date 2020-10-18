@@ -1,8 +1,8 @@
 <template>
   <div :class="['flex w-full justify-center h-16 fixed', this.navBarState]">
     <div :class="['flex', this.navCollapsed ? 'py-2 w-3/4 items-center' : 'flex-col items-end w-3/4']">
-      <HeaderBarLogo :logoClass="'w-2/12'" v-if="this.navCollapsed" />
-      <div class="w-full flex justify-end">
+      <HeaderBarLogo :logoClass="'xs:hidden flex w-2/12'" v-if="this.navCollapsed" />
+      <div class="w-full flex justify-center md:justify-end">
         <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" :isCollapsed="navCollapsed" />
       </div>
       <HeaderBarLogo :logoClass="'py-24'" v-if="!this.navCollapsed" />

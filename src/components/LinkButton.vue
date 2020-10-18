@@ -19,7 +19,7 @@ export default {
   data: function () {
     return {
       darkLink: 'uppercase p-4 text-lg bg-black bg-opacity-25 text-center',
-      lightLink: 'p-6 text-lg'
+      lightLink: 'p-2 xl:p-6 text-xs md:text-sm xl:text-lg'
     }
   }
 }

@@ -22,10 +22,10 @@
           <div class="w-2/3 pl-16">
             <!-- TODO: header instead of p tag -->
             <h2 class="text-3xl pb-4">{{ this.whoWeAreSection.title }}</h2>
-            <div v-html="this.whoWeAreSection.description" class="pt-2 text-justify text-sm" />
+            <div v-html="this.whoWeAreSection.description" class="pt-0 lg:pt-2 text-justify text-xs lg:text-sm" />
           </div>
         </div>
-        <LinkButton :link="this.whoWeAreSection.link" class="pt-2" />
+        <LinkButton :link="this.whoWeAreSection.link" class="pt-6 lg:pt-2" />
       </div>
     </div>
   </div>
