@@ -20,7 +20,6 @@
             <img :src="this.whoWeAreSection.image" class="w-full">
           </div>
           <div class="w-2/3 pl-16">
-            <!-- TODO: header instead of p tag -->
             <h2 class="text-3xl pb-4">{{ this.whoWeAreSection.title }}</h2>
             <div v-html="this.whoWeAreSection.description" class="pt-0 lg:pt-2 text-justify text-xs lg:text-sm" />
           </div>

@@ -1,11 +1,15 @@
 <template>
   <div :class="['flex w-full justify-center h-16 fixed', this.navBarState]">
-    <div :class="['flex', this.navCollapsed ? 'py-2 w-3/4 items-center' : 'flex-col items-end w-3/4']">
-      <HeaderBarLogo :logoClass="'xs:hidden flex w-2/12'" v-if="this.navCollapsed" />
-      <div class="w-full flex justify-center md:justify-end">
-        <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" :isCollapsed="navCollapsed" />
+    <div :class="['flex', this.navCollapsed ? 'py-2 w-3/4 justify-between items-center' : 'flex-col items-end w-10/12']">
+      <HeaderBarLogo :logoClass="'xs:hidden flex w-2/12 py-2'" v-if="this.navCollapsed"/>
+      <div class="w-full flex justify-center md:justify-between pt-2">
+        <HeaderBarLogo :logoClass="'xs:hidden flex w-2/12 pt-2'" v-if="!this.navCollapsed" />
+        <div :class="['flex', this.navCollapsed ? 'flex-grow justify-end' : 'justify-center md:justify-between pt-6']">
+          <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" :isCollapsed="navCollapsed" />
+        </div>
       </div>
-      <HeaderBarLogo :logoClass="'py-24'" v-if="!this.navCollapsed" />
+      <!-- <HeaderBarLogo :logoClass="'py-24'" v-if="!this.navCollapsed" /> -->
+      <h1 class="pt-64 pb-20 text-6xl uppercase text-white tracking-wide" v-if="!this.navCollapsed">Interior design on your terms</h1>
       <LinkButton :link="this.questionnaireButton" v-if="!this.navCollapsed" />
       <div class="flex justify-end w-2/12 py-8" v-if="!this.navCollapsed">
         <a href="https://www.facebook.com/Entrancedesignnz16" class="mx-2">
