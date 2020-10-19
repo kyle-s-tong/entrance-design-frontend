@@ -133,7 +133,7 @@ export default {
       this.sendingEmail = true;
       // TODO: Change server side to send nice email.
       await axios.post(`${process.env.VUE_APP_API_HOST}/email`, {
-        "to": "kyle.simon.tong@gmail.com",
+        "to": `${process.env.VUE_APP_EMAIL_RECIPIENT}`,
         "subject": "Contact form enquiry",
         "text": JSON.stringify(this.formData),
       });
