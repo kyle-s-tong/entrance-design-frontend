@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full">
     <div class="flex w-full justify-center h-1/2 bg-black bg-opacity-25">
-      <TheHeaderBar />
+      <TheHeaderBar :isCollapsed="true" :lockBarState="true" />
       <RouteTitle :title="'Gallery'" />
     </div>
     <div class="background" v-if="this.galleryItem">
@@ -138,5 +138,9 @@ export default {
 <style>
   .swiper-wrapper .swiper-slide-active {
     opacity: 1;
+  }
+
+  .swiper-container {
+    list-style: none;
   }
 </style>
