@@ -11,7 +11,7 @@
       </h3>
       <div class="w-full flex">
         <div class="w-1/2 pr-8" v-if="this.pricing.Image">
-          <img :src="`${imageBaseUrl}${this.pricing.Image.url}`" :alt="pricing.title">
+          <img :src="`${this.pricing.Image.url}`" :alt="pricing.title">
         </div>
         <div class="flex flex-col w-1/2">
           <VueShowdown :markdown="pricing.Description" class="list-disc pl-8 text-sm" />
@@ -41,11 +41,6 @@ export default {
         text: 'Click here to get started',
         route: '/questionnaire',
       },
-    }
-  },
-  computed: {
-    imageBaseUrl: function () {
-      return process.env.VUE_APP_API_HOST;
     }
   }
 }

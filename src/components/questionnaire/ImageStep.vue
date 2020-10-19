@@ -17,7 +17,7 @@
           <div class="grid grid-cols-3 gap-6">
             <div v-for="option in stepData.questionnaire_options" :key="option.id" class="shadow-lg cursor-pointer" v-on:click="selectOption(option)">
               <img
-                :src="`${imageBaseUrl}${option.Image.url}`"
+                :src="`${option.Image.url}`"
                 :alt="option.Image.alternativeText"
                 :class="['w-full shadow-lg transform hover:scale-105 duration-100', selectedOption && selectedOption.id === option.id ? 'scale-105 border-2 border-green-400' : '']">
             </div>
@@ -47,9 +47,6 @@ export default {
     }
   },
   computed: {
-    imageBaseUrl: function () {
-      return process.env.VUE_APP_API_HOST;
-    },
     selectedOption: function () {
       return this.$store.getters.getSelectedOptionByStep(this.stepData.StepNumber)
     }
