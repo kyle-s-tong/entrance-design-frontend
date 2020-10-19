@@ -14,7 +14,7 @@
               <div class="py-4 text-sm">
                 <p>Claire Kingan-Jones</p>
                 <!-- TODO: add link -->
-                <p>Email: click here</p>
+                <p>Email: <a href="mailto:claire@entrancedesign.co.nz">click here</a></p>
                 <p>Ph: +64 21 84 5555</p>
               </div>
               <!-- TODO: Componentise -->
@@ -22,7 +22,7 @@
               <div class="py-4 text-sm">
                 <p>Nicky Tong</p>
                 <!-- TODO: add link -->
-                <p>Email: click here</p>
+                <p>Email: <a href="mailto:nicky@entrancedesign.co.nz">click here</a></p>
                 <p>Ph: +64 21 312 747</p>
               </div>
               <hr>
