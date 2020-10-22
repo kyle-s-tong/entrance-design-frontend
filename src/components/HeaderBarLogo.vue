@@ -1,6 +1,6 @@
 <template>
   <div :class="logoClass">
-    <img src="../assets/entrance-logo-white.png" alt="Entrance Design Logo" >
+    <img class="object-contain" src="../assets/entrance-logo-white.png" alt="Entrance Design Logo" >
   </div>
 </template>
 

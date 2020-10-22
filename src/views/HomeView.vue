@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full">
-    <div class="flex w-full justify-center h-9/10 bg-black bg-opacity-25">
+    <div class="flex w-full justify-center h-1/2 md:h-9/10 bg-black bg-opacity-25">
       <TheHeaderBar />
     </div>
     <div class="flex w-full justify-center flex-col background">
@@ -13,14 +13,14 @@
       <div class="flex flex-col w-full items-center">
         <!-- TODO: header instead of p tag -->
         <div class="w-3/4 pb-2">
-          <p class="text-left text-2xl">Who we are</p>
+          <h2 class="text-center md:text-left text-xl md:text-2xl">Who we are</h2>
         </div>
-        <div class="flex w-3/4 justify-center">
-          <div class="w-1/3">
+        <div class="flex flex-col md:flex-row w-3/4 justify-center">
+          <div class="w-full pt-4 md:pt-0 md:w-1/3">
             <img :src="this.whoWeAreSection.image" class="w-full">
           </div>
-          <div class="w-2/3 pl-16">
-            <h2 class="text-3xl pb-4">{{ this.whoWeAreSection.title }}</h2>
+          <div class="w-full pt-4 md:pt-0 md:w-2/3 md:pl-16">
+            <h2 class="text-lg text-center md:text-left md:text-3xl pb-4">{{ this.whoWeAreSection.title }}</h2>
             <div v-html="this.whoWeAreSection.description" class="pt-0 lg:pt-2 text-justify text-xs lg:text-sm" />
           </div>
         </div>

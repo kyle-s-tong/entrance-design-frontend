@@ -1,25 +1,25 @@
 <template>
   <div :class="['flex w-full justify-center h-16 fixed', this.navBarState]">
-    <div :class="['flex', this.navCollapsed ? 'py-2 w-3/4 justify-between items-center' : 'flex-col items-end w-10/12']">
-      <HeaderBarLogo :logoClass="'xs:hidden flex w-2/12 py-2'" v-if="this.navCollapsed"/>
-      <div class="w-full flex justify-center md:justify-between pt-2">
-        <HeaderBarLogo :logoClass="'xs:hidden flex w-2/12 pt-2'" v-if="!this.navCollapsed" />
-        <div :class="['flex', this.navCollapsed ? 'flex-grow justify-end' : 'justify-center md:justify-between pt-6']">
+    <div :class="['flex', this.navCollapsed ? 'w-3/4 lg:w-7/8 xl:w-3/4 justify-between items-center' : 'flex-col items-end w-full px-2 lg:px-0 lg:w-10/12']">
+      <HeaderBarLogo :logoClass="'hidden sm:flex w-3/12 xl:w-2/12'" v-if="this.navCollapsed"/>
+      <div class="w-full flex xs:flex-col justify-center md:justify-between">
+        <HeaderBarLogo :logoClass="'sm:pr-4 hidden sm:flex w-3/12 xl:w-2/12 pt-2'" v-if="!this.navCollapsed" />
+        <div :class="['flex', this.navCollapsed ? 'flex-grow justify-end' : 'justify-center md:justify-between lg:pt-6']">
           <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" :isCollapsed="navCollapsed" />
         </div>
       </div>
-      <!-- <HeaderBarLogo :logoClass="'py-24'" v-if="!this.navCollapsed" /> -->
-      <h1 class="pt-64 pb-20 text-6xl uppercase text-white tracking-wide" v-if="!this.navCollapsed">Interior design on your terms</h1>
-      <LinkButton :link="this.questionnaireButton" v-if="!this.navCollapsed" />
-      <div class="flex justify-end w-2/12 py-8" v-if="!this.navCollapsed">
+      <HeaderBarLogo :logoClass="'sm:hidden w-10/12 self-center pt-8'" v-if="!this.navCollapsed" />
+      <h1 class="pt-4 sm:pt-32 lg:pt-64 pb-4 sm:pb-20 self-center sm:self-end text-center sm:text-right text-md md:text-4xl xl:text-6xl uppercase text-white tracking-wide" v-if="!this.navCollapsed">Interior design on your terms</h1>
+      <LinkButton :link="this.questionnaireButton" v-if="!this.navCollapsed" class="self-center sm:self-end" />
+      <div class="flex justify-center sm:justify-end sm:w-2/12 w-full py-4" v-if="!this.navCollapsed">
         <a href="https://www.facebook.com/Entrancedesignnz16" class="mx-2">
-          <img src="../assets/social/facebook.png" class="icon" alt="Link to Entrance Design's Facebook page">
+          <img src="../assets/social/facebook.png" class="icon object-contain" alt="Link to Entrance Design's Facebook page">
         </a>
         <a href="https://www.instagram.com/entrancedesignnz" class="mx-2">
-          <img src="../assets/social/instagram.png" class="icon" alt="Link to Entrance Design's Instagram page">
+          <img src="../assets/social/instagram.png" class="icon object-contain" alt="Link to Entrance Design's Instagram page">
         </a>
         <a href="https://nz.pinterest.com/entrancedsgn" class="mx-2">
-          <img src="../assets/social/pinterest.png" class="icon" alt="Link to Entrance Design's Pinterest page">
+          <img src="../assets/social/pinterest.png" class="icon object-contain" alt="Link to Entrance Design's Pinterest page">
         </a>
       </div>
     </div>
@@ -67,6 +67,7 @@ export default {
         route: '/questionnaire',
       },
       navCollapsed: this.isCollapsed,
+      windowWidth: 0,
     }
   },
   computed: {
@@ -77,6 +78,13 @@ export default {
         collapse: this.navCollapsed,
         open: !this.navCollapsed
       }
+    },
+    sizeAdjustedCollapsePoint: function () {
+      if (this.windowWidth < 640) {
+        return 10;
+      }
+
+      return this.collapsePoint;
     }
   },
   methods: {
@@ -88,7 +96,7 @@ export default {
       const currentScroll = this.scrollTop();
       if (this.scrollTop() === 0) {
         home();
-      } else if (currentScroll > (this.collapsePoint)) {
+      } else if (currentScroll > (this.sizeAdjustedCollapsePoint)) {
         down();
       }
     },
@@ -106,6 +114,7 @@ export default {
     },
   },
   created() {
+    this.windowWidth = window.innerWidth;
     window.addEventListener('scroll', () => {
       this.scrollDetect(this.scrollHome, this.scrollDown);
     })
