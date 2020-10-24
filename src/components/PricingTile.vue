@@ -1,21 +1,21 @@
 <template>
-  <div class="w-2/3 py-2">
+  <div class="w-3/4 md:w-2/3 py-2">
     <div class="bg-white p-4">
       <div class="text-center border border-black p-4 my-2">
         <h3 class="text-2xl">
           {{ pricing.Title }}
         </h3>
       </div>
-      <h3 class="text-3xl">
+      <h3 class="text-xl text-center md:text-left md:text-3xl">
         {{ pricing.Price }}
       </h3>
       <div class="w-full flex">
-        <div class="w-1/2 pr-8" v-if="this.pricing.Image">
+        <div class="w-1/2 md:pr-8" v-if="this.pricing.Image">
           <img :src="`${this.pricing.Image.url}`" :alt="pricing.title">
         </div>
-        <div class="flex flex-col w-1/2">
-          <VueShowdown :markdown="pricing.Description" class="list-disc pl-8 text-sm" />
-          <LinkButton :link="this.questionnaireButton" :linkType="light" class="pt-8 pl-8" />
+        <div class="flex md:flex-col w-1/2">
+          <VueShowdown :markdown="pricing.Description" class="list-disc pl-2 md:pl-8 text-xs md:text-sm" />
+          <LinkButton :link="this.questionnaireButton" :linkType="light" class="pt-8 pl-2 md:pl-8" />
         </div>
       </div>
     </div>

@@ -1,14 +1,14 @@
 <template>
   <div class="w-full h-full">
-    <div class="flex w-full justify-center h-3/4 bg-black bg-opacity-25">
+    <div class="flex w-full justify-center h-2/3 md:h-3/4 bg-black bg-opacity-25">
       <TheHeaderBar />
       <RouteTitle :title="'Pricing'" />
     </div>
     <div class="background">
       <div class="flex flex-col items-center bg-white bg-opacity-50 w-full">
         <div class="flex w-2/3 flex-col p-8 bg-white m-4">
-          <h2 class="text-center text-4xl">The easiest way to interior decorate your home</h2>
-          <p class="px-16 pb-8 pt-4 text-sm">
+          <h2 class="text-center text-xl md:text-4xl">The easiest way to interior decorate your home</h2>
+          <p class="px-2 md:px-16 md:pb-8 pt-4 text-sm">
             You have a home. You want it to look great. So do we! Using the magic of the web, we will
             interior decorate your home completely online. No appointments. No hassles or
             frustrations. Just fast, professional e-decorating services, tailored to your space.

@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full">
-    <div class="flex w-full justify-center h-1/2 md:h-9/10 bg-black bg-opacity-25">
+    <div class="flex w-full justify-center h-2/3 md:h-9/10 bg-black bg-opacity-25">
       <TheHeaderBar />
     </div>
     <div class="flex w-full justify-center flex-col background">

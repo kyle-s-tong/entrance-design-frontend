@@ -8,10 +8,10 @@
           <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" :isCollapsed="navCollapsed" />
         </div>
       </div>
-      <HeaderBarLogo :logoClass="'sm:hidden w-10/12 self-center pt-8'" v-if="!this.navCollapsed" />
-      <h1 class="pt-4 sm:pt-32 lg:pt-64 pb-4 sm:pb-20 self-center sm:self-end text-center sm:text-right text-md md:text-4xl xl:text-6xl uppercase text-white tracking-wide" v-if="!this.navCollapsed">Interior design on your terms</h1>
-      <LinkButton :link="this.questionnaireButton" v-if="!this.navCollapsed" class="self-center sm:self-end" />
-      <div class="flex justify-center sm:justify-end sm:w-2/12 w-full py-4" v-if="!this.navCollapsed">
+      <HeaderBarLogo :logoClass="'sm:hidden w-10/12 self-center pt-20'" v-if="!this.navCollapsed" />
+      <h1 class="pt-8 sm:pt-32 lg:pt-64 pb-4 sm:pb-20 self-center sm:self-end text-center sm:text-right text-md md:text-4xl xl:text-6xl uppercase text-white tracking-wide" v-if="!this.navCollapsed">Interior design on your terms</h1>
+      <LinkButton :link="this.questionnaireButton" v-if="!this.navCollapsed" class="pt-4 self-center sm:self-end" />
+      <div class="flex justify-center sm:justify-end sm:w-2/12 w-full py-10" v-if="!this.navCollapsed">
         <a href="https://www.facebook.com/Entrancedesignnz16" class="mx-2">
           <img src="../assets/social/facebook.png" class="icon object-contain" alt="Link to Entrance Design's Facebook page">
         </a>

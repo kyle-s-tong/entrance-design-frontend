@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full">
-    <div class="flex w-full justify-center h-3/4 bg-black bg-opacity-25">
+    <div class="flex w-full justify-center h-2/3 md:h-3/4 bg-black bg-opacity-25">
       <TheHeaderBar />
       <RouteTitle :title="'Gallery'" />
     </div>

@@ -1,5 +1,7 @@
 module.exports = {
-  purge: [],
+  purge: [
+    './src/**/*.vue',
+  ],
   target: 'relaxed',
   prefix: '',
   important: false,
@@ -282,6 +284,7 @@ module.exports = {
       auto: 'auto',
       ...theme('spacing'),
       '1/2': '50%',
+      '2/3': '66.66%',
       '1/5': '20%',
       '3/4': '75%',
       '4/5': '80%',
