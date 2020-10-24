@@ -11,7 +11,6 @@
     </div>
     <div class="flex w-full pt-16 pb-32" id="whoweare">
       <div class="flex flex-col w-full items-center">
-        <!-- TODO: header instead of p tag -->
         <div class="w-3/4 pb-2">
           <h2 class="text-center md:text-left text-xl md:text-2xl">Who we are</h2>
         </div>
