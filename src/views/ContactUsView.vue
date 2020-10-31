@@ -1,34 +1,32 @@
 <template>
   <div class="w-full h-full">
-    <div class="flex w-full justify-center h-3/4 bg-black bg-opacity-25">
+    <div class="flex w-full justify-center h-2/3 lg:h-3/4 bg-black bg-opacity-25">
       <TheHeaderBar :collapsePoint="100" />
       <RouteTitle :title="'Contact us'" />
     </div>
     <div class="background flex">
-      <div class="w-full justify-center flex bg-white bg-opacity-90 pt-32">
-        <div class="flex w-2/3">
-          <div class="w-1/3">
+      <div class="w-full justify-center items-center flex flex-col lg:flex-row bg-white bg-opacity-90 pt-8 lg:pt-32">
+        <div class="flex w-2/3 justify-center flex-col lg:flex-row">
+          <div class="w-full lg:w-1/3">
             <div>
-              <h2 class="text-3xl">Contact us</h2>
+              <h2 class="text-xl text-center lg:text-left lg:text-3xl">Contact us</h2>
               <!-- TODO: Componentise -->
-              <div class="py-4 text-sm">
+              <div class="py-4 text-sm text-center lg:text-left">
                 <p>Claire Kingan-Jones</p>
-                <!-- TODO: add link -->
                 <p>Email: <a href="mailto:claire@entrancedesign.co.nz">click here</a></p>
                 <p>Ph: +64 21 84 5555</p>
               </div>
               <!-- TODO: Componentise -->
               <hr>
-              <div class="py-4 text-sm">
+              <div class="py-4 text-sm text-center lg:text-left">
                 <p>Nicky Tong</p>
-                <!-- TODO: add link -->
                 <p>Email: <a href="mailto:nicky@entrancedesign.co.nz">click here</a></p>
                 <p>Ph: +64 21 312 747</p>
               </div>
               <hr>
             </div>
           </div>
-          <div class="w-2/3 pl-6 pb-12">
+          <div class="w-full lg:w-2/3 lg:pl-6 pb-12">
             <form class="flex flex-col">
               <p v-if="errors.length" class="text-red-500 p-2">
                 <b>Please add in the following field(s):</b>
@@ -36,34 +34,34 @@
                   <li v-for="error in errors" :key="error">{{ error }}</li>
                 </ul>
               </p>
-              <div class="flex">
+              <div class="flex flex-col lg:flex-row">
                 <!-- TODO: Componentise -->
-                <div class="flex flex-col p-2 w-1/3">
-                  <label for="name">Name</label>
+                <div class="flex flex-col p-2 w-full lg:w-1/3">
+                  <label for="name" class="text-center lg:text-left">Name</label>
                   <input id="name" v-model="formData.name" required placeholder="name" class="placeholder-padding border border-entrance-gray rounded p-1">
                 </div>
                 <!-- TODO: Componentise -->
-                <div class="flex flex-col p-2 w-1/3">
-                  <label for="email">Email address</label>
+                <div class="flex flex-col p-2 w-full lg:w-1/3">
+                  <label for="email" class="text-center lg:text-left">Email address</label>
                   <input id="email" v-model="formData.email" required placeholder="email address" class="placeholder-padding border border-entrance-gray rounded p-1">
                 </div>
                 <!-- TODO: Componentise -->
-                <div class="flex flex-col p-2 w-1/3">
-                  <label for="phone">Phone number</label>
+                <div class="flex flex-col p-2 w-full lg:w-1/3">
+                  <label for="phone" class="text-center lg:text-left">Phone number</label>
                   <input id="phone" v-model="formData.phone" placeholder="phone number" class="placeholder-padding border border-entrance-gray rounded p-1">
                 </div>
               </div>
               <div class="w-full">
                 <!-- TODO: Componentise -->
                 <div class="flex flex-col p-2">
-                  <label for="subject">Subject</label>
+                  <label for="subject" class="text-center lg:text-left">Subject</label>
                   <input id="subject" v-model="formData.subject" placeholder="subject" class="placeholder-padding border border-entrance-gray rounded p-1">
                 </div>
               </div>
               <div>
                 <!-- TODO: Componentise -->
                 <div class="flex flex-col p-2">
-                  <label for="message">Message</label>
+                  <label for="message" class="text-center lg:text-left">Message</label>
                   <textarea id="message" v-model="formData.message" placeholder="write your message here.." class="placeholder-padding border border-entrance-gray rounded p-1"></textarea>
                 </div>
               </div>
