@@ -15,7 +15,7 @@
           <p>Your design style is:</p>
           <div v-if="this.result" class="flex flex-col justify-center items-center py-4 text-lg">
             <h2 class="text-4xl uppercase pb-2">{{ result.Title }}</h2>
-            <img :src="`${result.Image.url}`" class="w-1/4 border-black border-4 p-2">
+            <img :src="`${imageBaseUrl}${result.Image.url}`" class="w-1/4 border-black border-4 p-2">
             <p class="w-1/2 py-8">{{ result.Description }}</p>
             <p class="w-1/2">Do you want to see what {{ result.Title }} looks like for your home?</p>
             <p class="w-1/2 py-8">
@@ -37,10 +37,11 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 import TheHeaderBar from '../components/TheHeaderBar';
 import RouteTitle from '../components/RouteTitle';
-
-import axios from 'axios';
+import getImageUrl from '../utils/image';
 
 export default {
   name: 'QuestionnaireResults',
@@ -52,6 +53,11 @@ export default {
     return {
       result: null,
     }
+  },
+  computed: {
+    imageBaseUrl: function () {
+      return getImageUrl();
+    },
   },
   async mounted() {
     const result = this.$store.getters.getFinalResult();

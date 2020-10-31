@@ -10,20 +10,20 @@
           <div class="flex flex-col w-1/2 pr-10">
             <swiper class="swiper w-full h-4/5 flex flex-col items-center" :options="swiperOptions" ref="mainGallery">
               <swiper-slide v-for="image in galleryItem.GalleryImages" class="flex items-center" :key="image.id">
-                <img :src="`${image.url}`" alt="">
+                <img :src="`${imageBaseUrl}${image.url}`" alt="">
               </swiper-slide>
               <div class="swiper-button-prev text-black" slot="button-prev" v-on:click="handleClickedSlide('previous')"></div>
               <div class="swiper-button-next text-black" slot="button-next" v-on:click="handleClickedSlide('next')"></div>
             </swiper>
             <swiper class="swiper w-full h-1/5 box-border p-3" :options="swiperOptionThumbs" ref="thumbs" v-on:click="handleClickedThumb">
               <swiper-slide class="w-1/4 opacity-50 flex items-center" v-for="image in galleryItem.GalleryImages" :key="image.id">
-                <img :src="`${image.url}`" alt="">
+                <img :src="`${imageBaseUrl}${image.url}`" alt="">
               </swiper-slide>
             </swiper>
           </div>
           <div class="w-1/2 flex flex-col items-center">
             <h2 class="text-5xl">{{ galleryItem.Title }}</h2>
-            <img :src="`${galleryItem.MainImage.url}`" alt="" class="py-8">
+            <img :src="`${imageBaseUrl}${galleryItem.MainImage.url}`" alt="" class="py-8">
             <br>
             <VueShowdown :markdown="galleryItem.Description" class="text-justify" />
           </div>
@@ -50,6 +50,7 @@ import 'swiper/swiper-bundle.css';
 import TheHeaderBar from '../components/TheHeaderBar';
 import RouteTitle from '../components/RouteTitle';
 import GalleryGrid from '../components/GalleryGrid';
+import getImageUrl from '../utils/image';
 
 export default {
   name: 'GallerySingleView',
@@ -112,6 +113,11 @@ export default {
       this.mainGallery.slideTo(index);
       this.thumbs.slideTo(index);
     }
+  },
+  computed: {
+    imageBaseUrl: function () {
+      return getImageUrl();
+    },
   },
   async mounted() {
     // TODO: handle errors
