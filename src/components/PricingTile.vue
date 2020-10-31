@@ -11,7 +11,7 @@
       </h3>
       <div class="w-full flex">
         <div class="w-1/2 md:pr-8" v-if="this.pricing.Image">
-          <img :src="`${this.pricing.Image.url}`" :alt="pricing.title">
+          <img :src="`${imageBaseUrl}${this.pricing.Image.url}`" :alt="pricing.title">
         </div>
         <div class="flex md:flex-col w-1/2">
           <VueShowdown :markdown="pricing.Description" class="list-disc pl-2 md:pl-8 text-xs md:text-sm" />
@@ -25,6 +25,7 @@
 <script>
 import { VueShowdown } from 'vue-showdown';
 import LinkButton from './LinkButton';
+import getImageUrl from '../utils/image';
 
 export default {
   name: 'PricingTile',
@@ -41,6 +42,11 @@ export default {
         text: 'Click here to get started',
         route: '/questionnaire',
       },
+    }
+  },
+  computed: {
+    imageBaseUrl: function () {
+      return getImageUrl();
     }
   }
 }
