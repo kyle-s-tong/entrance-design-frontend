@@ -16,7 +16,7 @@ export default {
 <style>
   .background {
     background-image: url("./assets/background-image.jpg") ;
-    background-size: cover;
+    background-size: auto;
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
