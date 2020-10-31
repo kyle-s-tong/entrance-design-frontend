@@ -1,5 +1,5 @@
 <template>
-  <div :class="['flex w-full justify-center h-16 fixed', this.navBarState]">
+  <div :class="['flex w-full justify-center h-16 fixed z-50', this.navBarState]">
     <div :class="['flex', this.navCollapsed ? 'w-3/4 lg:w-7/8 xl:w-3/4 justify-between items-center' : 'flex-col items-end w-full px-2 lg:px-0 lg:w-10/12']">
       <HeaderBarLogo :logoClass="'hidden sm:flex w-3/12 xl:w-2/12'" v-if="this.navCollapsed"/>
       <div class="w-full flex xs:flex-col justify-center md:justify-between">
