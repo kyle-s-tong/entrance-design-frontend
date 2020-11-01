@@ -6,10 +6,10 @@
     </div>
     <div class="background" v-if="this.galleryItem">
       <div class="flex flex-col items-center bg-white bg-opacity-75 w-full py-8">
-        <div class="flex w-1/2 pb-10">
-          <div class="flex flex-col w-1/2 pr-10">
+        <div class="flex flex-col md:flex-row w-10/12 md:w-1/2 pb-10">
+          <div class="flex flex-col w-full md:w-1/2 md:pr-10">
             <swiper class="swiper w-full h-4/5 flex flex-col items-center" :options="swiperOptions" ref="mainGallery">
-              <swiper-slide v-for="image in galleryItem.GalleryImages" class="flex items-center" :key="image.id">
+              <swiper-slide v-for="image in galleryItem.GalleryImages" class="flex self-center h-full items-center" :key="image.id">
                 <img :src="`${imageBaseUrl}${image.url}`" alt="">
               </swiper-slide>
               <div class="swiper-button-prev text-black" slot="button-prev" v-on:click="handleClickedSlide('previous')"></div>
@@ -21,8 +21,8 @@
               </swiper-slide>
             </swiper>
           </div>
-          <div class="w-1/2 flex flex-col items-center">
-            <h2 class="text-5xl">{{ galleryItem.Title }}</h2>
+          <div class="w-full md:w-1/2 flex flex-col items-center">
+            <h2 class="text-2xl md:text-5xl">{{ galleryItem.Title }}</h2>
             <img :src="`${imageBaseUrl}${galleryItem.MainImage.url}`" alt="" class="py-8">
             <br>
             <VueShowdown :markdown="galleryItem.Description" class="text-justify" />
