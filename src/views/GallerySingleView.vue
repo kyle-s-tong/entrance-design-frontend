@@ -22,7 +22,7 @@
             </swiper>
           </div>
           <div class="w-full md:w-1/2 flex flex-col items-center">
-            <h2 class="text-2xl md:text-5xl">{{ galleryItem.Title }}</h2>
+            <h2 class="text-2xl lg:text-4xl">{{ galleryItem.Title }}</h2>
             <img :src="`${imageBaseUrl}${galleryItem.MainImage.url}`" alt="" class="py-8">
             <br>
             <VueShowdown :markdown="galleryItem.Description" class="text-justify" />
