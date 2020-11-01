@@ -2,13 +2,13 @@
   <div class="w-full h-full background">
     <div class="w-full h-full bg-white bg-opacity-90 flex justify-center">
       <div class="w-full h-full flex justify-center">
-        <div class="flex flex-col w-1/2 h-full pt-8">
+        <div class="flex flex-col w-10/12 md:w-1/2 h-full pt-8">
           <div class="flex flex-col items-center py-4">
-            <div class="py-6">
+            <div class="md:py-6">
               {{ stepData.StepNumber }}
             </div>
             <div class="py-6">
-              <h2 class="uppercase text-2xl">{{ stepData.Title }}</h2>
+              <h2 class="text-center md:text-left uppercase text-2xl">{{ stepData.Title }}</h2>
             </div>
             <div>
               <VueShowdown class="text-center leading-8" :markdown="stepData.Description" />

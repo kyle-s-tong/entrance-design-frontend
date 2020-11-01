@@ -7,7 +7,7 @@
     <div class="background">
       <div class="bg-white bg-opacity-75 flex justify-center pb-16">
         <div class="text-center">
-          <div class="text-2xl py-4">
+          <div class="text-lg md:text-2xl py-4">
             <p>Welcome to Entrance Design.</p>
             <p>Yay, you've taken the time to fill out our design questionnaire.</p>
           </div>
