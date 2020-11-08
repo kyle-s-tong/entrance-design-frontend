@@ -1,12 +1,16 @@
 export const stepDetails = [
   {
-    id: 'howitworks',
-    title: 'How it works',
-    description: `You have a home. You want it to look great. So do we! Using the magic of the web,
-                  we can transform your house, into your dream home... completely online! No
-                  appointments. No hassles or frustrations. Just fast, professional e-decorating
-                  services, tailored to your space. Never fear, we also offer in-home services
-                  as found in our design packages.`,
+    id: 'process',
+    title: 'Process',
+    description: `Entrance Design is a modern approach to design, born with the intention of
+                  creating a fresh and accessible interior design solution. Taking the
+                  guesswork out of decorating, we offer affordable, convenient and professional
+                  e-decorating services, tailored to your home and style.  Or we can arrange a
+                  no-obligation in-home consultation to discuss your interior design requirements
+                  and customise our services to suit your individual needs and budget.
+                  Whatever you choose, our guiding principle is to enrich your life at home,
+                  transforming your space to reflect your unique personality and create a
+                  home your family and friends will love to spend time in. `,
     link: {
       text: 'view our design packages',
       route: '/pricing',

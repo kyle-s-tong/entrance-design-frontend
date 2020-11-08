@@ -56,7 +56,7 @@ export default {
     return {
       headerBarLinks: [
         { text: 'Home', route: '/home'},
-        { text: 'How it works', route: '/home#howitworks'},
+        { text: 'Process', route: '/home#process'},
         { text: 'Who we are', route: '/home#whoweare'},
         { text: 'Gallery', route: '/gallery'},
         { text: 'Pricing', route: '/pricing'},

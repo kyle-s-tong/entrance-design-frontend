@@ -24,6 +24,7 @@ export default {
   .highlight:hover {
     background: url("./assets/brush.png");
     background-repeat: no-repeat;
+    background-size: cover;
     background-size: 90% 90%;
     background-position: 100% 75%;
     color: black;
