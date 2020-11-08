@@ -16,9 +16,17 @@ export default {
 <style>
   .background {
     background-image: url("./assets/background-image.jpg") ;
-    background-size: auto;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+  }
+
+  .highlight:hover {
+    background: url("./assets/brush.png");
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+    background-position: 100% 75%;
+    color: black;
   }
 
   html, body {

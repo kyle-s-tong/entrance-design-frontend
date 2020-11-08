@@ -5,11 +5,11 @@
       <div class="w-full flex xs:flex-col justify-center md:justify-between">
         <HeaderBarLogo :logoClass="'sm:pr-4 hidden sm:flex w-3/12 xl:w-2/12 pt-2'" v-if="!this.navCollapsed" />
         <div :class="['flex', this.navCollapsed ? 'flex-grow justify-end' : 'justify-center md:justify-between lg:pt-6']">
-          <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" :isCollapsed="navCollapsed" />
+          <HeaderBarLink v-for="link in headerBarLinks" :key="link.text" :link="link" :class="'highlight hover:text-black'" :isCollapsed="navCollapsed" />
         </div>
       </div>
       <HeaderBarLogo :logoClass="'sm:hidden w-10/12 self-center pt-20'" v-if="!this.navCollapsed" />
-      <h1 class="pt-8 sm:pt-32 lg:pt-64 pb-4 sm:pb-20 self-center sm:self-end text-center sm:text-right text-md md:text-4xl xl:text-6xl uppercase text-white tracking-wide" v-if="!this.navCollapsed">Interior design on your terms</h1>
+      <h1 class="pt-8 sm:pt-32 lg:pt-64 pb-4 sm:pb-20 self-center sm:self-end text-center sm:text-right text-md md:text-3xl xl:text-5xl uppercase text-white tracking-wide" v-if="!this.navCollapsed">Interior design on your terms</h1>
       <LinkButton :link="this.questionnaireButton" v-if="!this.navCollapsed" class="pt-4 self-center sm:self-end" />
       <div class="flex justify-center sm:justify-end sm:w-2/12 w-full py-10" v-if="!this.navCollapsed">
         <a href="https://www.facebook.com/Entrancedesignnz16" class="mx-2">
