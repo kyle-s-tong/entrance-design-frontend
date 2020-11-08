@@ -19,10 +19,9 @@ export const stepDetails = [
   },
   {
     number: 1,
-    title: 'Answer our simple questionnaire',
-    description: `This will gauge your look & style.`,
+    title: 'Find your interior design style',
     link: {
-      text: 'view our simple questionnaire',
+      text: 'take our free design quiz',
       route: '/questionnaire',
     },
     image: require('../assets/steps/step2-lightroom.jpg'),
@@ -31,9 +30,8 @@ export const stepDetails = [
   {
     number: 2,
     title: 'Choose your design package',
-    description: `Select the package that best suits your needs.`,
     link: {
-      text: 'view our design packages',
+      text: 'view our pricing options',
       route: '/pricing',
     },
     image: require('../assets/steps/step3-pricingoptions.jpg'),
