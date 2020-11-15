@@ -9,6 +9,9 @@
 export default {
   name: 'App',
   components: {
+  },
+  mounted: function () {
+    this.$store.commit('setFeaturesEnabled', { environment: process.env.NODE_ENV });
   }
 }
 </script>

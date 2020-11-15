@@ -12,6 +12,9 @@ export default new Vuex.Store({
     emailAddress: '',
     finalResult: '',
     selectedOptions: [],
+    featuresEnabled: {
+      shopEnabled: false,
+    },
   },
   mutations: {
     setName(state, payload) {
@@ -31,6 +34,14 @@ export default new Vuex.Store({
     },
     setFinalResult(state, payload) {
       state.finalResult = payload.calculatedFinalResult;
+    },
+    setFeaturesEnabled(state, payload) {
+      const { environment } = payload;
+
+      // Disable features in production
+      state.featuresEnabled = {
+        shopEnabled: environment !== 'production'
+      };
     }
   },
   getters: {
@@ -53,6 +64,9 @@ export default new Vuex.Store({
     },
     getEmailAddress: (state) => () => {
       return state.emailAddress;
+    },
+    getFeaturesEnabled: (state) => () => {
+      return state.featuresEnabled;
     }
   },
 });

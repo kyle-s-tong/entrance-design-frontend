@@ -58,7 +58,7 @@ export default {
         { text: 'Home', route: '/home'},
         { text: 'Process', route: '/home#process'},
         { text: 'Who we are', route: '/home#whoweare'},
-        { text: 'Gallery', route: '/gallery'},
+        { text: 'Projects', route: '/gallery'},
         { text: 'Pricing', route: '/pricing'},
         { text: 'Contact us', route: '/contact-us'},
       ],
@@ -112,12 +112,27 @@ export default {
     scrollDown() {
       this.navCollapsed = true;
     },
+    isShopEnabled: function () {
+      const features = this.$store.getters.getFeaturesEnabled();
+      if (features.shopEnabled === true) {
+        const endLink = this.headerBarLinks.pop();
+
+        this.headerBarLinks.push({
+          text: 'Shop',
+          route: '/shop'
+        });
+
+        this.headerBarLinks.push(endLink);
+      }
+    }
   },
   created() {
     this.windowWidth = window.innerWidth;
     window.addEventListener('scroll', () => {
       this.scrollDetect(this.scrollHome, this.scrollDown);
     })
+
+    this.isShopEnabled();
   }
 }
 </script>
