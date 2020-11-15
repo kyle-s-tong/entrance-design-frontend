@@ -21,7 +21,7 @@
             <p class="w-1/2 py-8">
               <a
                 class="text-blue-500 font-bold text-xl uppercase"
-                :href="`mailto:nicky@entrancedesign.co.nz?subject=My%20questionnaire%20results&body=My%20result%20was%20${ result.Title }.%20Can%20you%20please%20help%20me%20to%20style%20my%20home?`">
+                :href="`mailto:hello@entrancedesign.co.nz?subject=My%20questionnaire%20results&body=My%20result%20was%20${ result.Title }.%20Can%20you%20please%20help%20me%20to%20style%20my%20home?`">
               Click here</a></p>
             <p>to email us with your results and we will get back to you as soon as we can.</p>
             <div class="pt-24">

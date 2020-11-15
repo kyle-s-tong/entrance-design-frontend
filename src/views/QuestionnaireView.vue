@@ -107,6 +107,8 @@ export default {
       const calculatedFinalResult = this.parseQuestionnaireResults(rawResults);
       this.$store.commit('setFinalResult', { calculatedFinalResult });
 
+      this.createUser(calculatedFinalResult);
+
       this.$router.push({ path: 'questionnaire/results' });
     },
     parseQuestionnaireResults(results) {
@@ -128,6 +130,21 @@ export default {
       const highestScore = Object.keys(sumResults).find(key => sumResults[key] === max);
 
       return highestScore;
+    },
+    createUser(result) {
+      const requestBody = {
+        email: this.$store.getters.getEmailAddress(),
+        username: this.$store.getters.getEmailAddress(),
+        password: Math.random().toString(36).substring(7),
+        questionnaireResult: result
+      }
+
+      axios.post(
+        `${process.env.VUE_APP_API_HOST}/questionnaire-results`,
+        JSON.stringify(requestBody),
+        {
+          headers: {'Content-Type': 'application/json'}
+        });
     }
   },
   computed: {
