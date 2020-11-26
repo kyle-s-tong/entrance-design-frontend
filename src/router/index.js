@@ -7,6 +7,8 @@ import GallerySingleView from '../views/GallerySingleView.vue';
 import PricingView from '../views/PricingView.vue';
 import ContactUsView from '../views/ContactUsView.vue';
 import ShopView from '../views/ShopView.vue';
+import ShopCategoryView from '../views/ShopCategoryView.vue';
+import ProductView from '../views/ProductView.vue';
 import QuestionnaireView from '../views/QuestionnaireView.vue';
 import QuestionnaireResultsView from '../views/QuestionnaireResultsView.vue';
 
@@ -33,6 +35,8 @@ export function createRouter () {
       { path: '/pricing', component: PricingView },
       { path: '/contact-us', component: ContactUsView },
       { path: '/shop', component: ShopView },
+      { path: '/shop/categories/:category_id', component: ShopCategoryView },
+      { path: '/shop/categories/:category_id/products/:product_id', component: ProductView },
       { path: '/questionnaire', component: QuestionnaireView},
       { path: '/questionnaire/results', component: QuestionnaireResultsView },
       { path: '/home', redirect: '/' },
