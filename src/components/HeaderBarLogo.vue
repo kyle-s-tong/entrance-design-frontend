@@ -8,7 +8,7 @@
 export default {
   name: 'HeaderBarLogo',
   props: {
-    logoClass: String
-  }
-}
+    logoClass: String,
+  },
+};
 </script>

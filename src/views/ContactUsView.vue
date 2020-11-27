@@ -96,7 +96,7 @@ export default {
     RouteTitle,
     VueRecaptcha,
   },
-  data: function () {
+  data() {
     return {
       errors: [],
       formData: {
@@ -108,10 +108,10 @@ export default {
       },
       sendingEmail: false,
       siteKey: process.env.VUE_APP_RECAPTCHA_SITE_KEY,
-    }
+    };
   },
   methods: {
-      checkForm: function (event) {
+    checkForm(event) {
       if (this.formData.name && this.formData.email) {
         this.sendEmail();
       }
@@ -127,19 +127,19 @@ export default {
 
       event.preventDefault();
     },
-    sendEmail: async function () {
+    async sendEmail() {
       this.sendingEmail = true;
       // TODO: Change server side to send nice email.
       await axios.post(`${process.env.VUE_APP_API_HOST}/email`, {
-        "to": `${process.env.VUE_APP_EMAIL_RECIPIENT}`,
-        "subject": "Contact form enquiry",
-        "text": JSON.stringify(this.formData),
+        to: `${process.env.VUE_APP_EMAIL_RECIPIENT}`,
+        subject: 'Contact form enquiry',
+        text: JSON.stringify(this.formData),
       });
 
       this.sendingEmail = false;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style>

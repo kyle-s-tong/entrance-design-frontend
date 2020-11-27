@@ -43,7 +43,7 @@ export default {
     StepTile,
     LinkButton,
   },
-  data: function () {
+  data() {
     return {
       steps: stepDetails,
       pricingButton: {
@@ -51,7 +51,7 @@ export default {
         route: '/pricing',
       },
       whoWeAreSection: whoWeAre,
-    }
-  }
-}
+    };
+  },
+};
 </script>

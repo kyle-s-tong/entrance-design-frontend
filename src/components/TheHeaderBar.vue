@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import LinkButton from "./LinkButton";
-import HeaderBarLink from "./HeaderBarLink";
+import LinkButton from './LinkButton';
+import HeaderBarLink from './HeaderBarLink';
 import HeaderBarLogo from './HeaderBarLogo';
 
 export default {
@@ -50,17 +50,17 @@ export default {
     collapsePoint: {
       type: Number,
       default: 300,
-    }
+    },
   },
-  data: function () {
+  data() {
     return {
       headerBarLinks: [
-        { text: 'Home', route: '/home'},
-        { text: 'Process', route: '/home#process'},
-        { text: 'Who we are', route: '/home#whoweare'},
-        { text: 'Projects', route: '/gallery'},
-        { text: 'Pricing', route: '/pricing'},
-        { text: 'Contact us', route: '/contact-us'},
+        { text: 'Home', route: '/home' },
+        { text: 'Process', route: '/home#process' },
+        { text: 'Who we are', route: '/home#whoweare' },
+        { text: 'Gallery', route: '/gallery' },
+        { text: 'Pricing', route: '/pricing' },
+        { text: 'Contact us', route: '/contact-us' },
       ],
       questionnaireButton: {
         text: 'Take our questionnaire',
@@ -68,24 +68,24 @@ export default {
       },
       navCollapsed: this.isCollapsed,
       windowWidth: 0,
-    }
+    };
   },
   computed: {
-    navBarState: function () {
+    navBarState() {
       return {
         'bg-black': this.navCollapsed,
         'bg-opacity-50': this.navCollapsed,
         collapse: this.navCollapsed,
-        open: !this.navCollapsed
-      }
+        open: !this.navCollapsed,
+      };
     },
-    sizeAdjustedCollapsePoint: function () {
+    sizeAdjustedCollapsePoint() {
       if (this.windowWidth < 640) {
         return 10;
       }
 
       return this.collapsePoint;
-    }
+    },
   },
   methods: {
     scrollDetect(home, down) {

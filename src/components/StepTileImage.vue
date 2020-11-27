@@ -8,7 +8,7 @@
 export default {
   name: 'StepTileImage',
   props: {
-    imageUrl: String
-  }
-}
+    imageUrl: String,
+  },
+};
 </script>

@@ -62,7 +62,7 @@ export default {
     SwiperSlide,
     GalleryGrid,
   },
-  data: function () {
+  data() {
     return {
       galleries: [],
       galleryItem: null,
@@ -73,7 +73,7 @@ export default {
         spaceBetween: 10,
         navigation: {
           nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
+          prevEl: '.swiper-button-prev',
         },
       },
       swiperOptionThumbs: {
@@ -82,9 +82,9 @@ export default {
         centeredSlides: true,
         slidesPerView: 'auto',
         touchRatio: 0.2,
-        slideToClickedSlide: true
+        slideToClickedSlide: true,
       },
-    }
+    };
   },
   methods: {
     handleClickedSlide(direction) {
@@ -97,12 +97,10 @@ export default {
         } else {
           this.slideBothGalleriesToIndex(currentIndex + 1);
         }
+      } else if (currentIndex - 1 < 0) {
+        this.slideBothGalleriesToIndex(maxLength);
       } else {
-        if (currentIndex - 1 < 0) {
-          this.slideBothGalleriesToIndex(maxLength);
-        } else {
-          this.slideBothGalleriesToIndex(currentIndex - 1);
-        }
+        this.slideBothGalleriesToIndex(currentIndex - 1);
       }
     },
     handleClickedThumb(e) {
@@ -112,17 +110,17 @@ export default {
     slideBothGalleriesToIndex(index) {
       this.mainGallery.slideTo(index);
       this.thumbs.slideTo(index);
-    }
+    },
   },
   computed: {
-    imageBaseUrl: function () {
+    imageBaseUrl() {
       return getImageUrl();
     },
   },
   async mounted() {
     // TODO: handle errors
     const galleryItem = await axios.get(`${process.env.VUE_APP_API_HOST}/galleries/${this.$route.params.id}`);
-    const galleries = await axios.get(`${process.env.VUE_APP_API_HOST}/galleries`)
+    const galleries = await axios.get(`${process.env.VUE_APP_API_HOST}/galleries`);
     this.galleryItem = galleryItem.data;
     this.galleries = galleries.data;
 
@@ -133,7 +131,7 @@ export default {
     this.thumbs = thumbSwiper;
     this.mainGallery = mainGallerySwiper;
   },
-}
+};
 </script>
 
 <style>

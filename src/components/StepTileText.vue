@@ -24,7 +24,7 @@ export default {
     LinkButton,
   },
   props: {
-    step: Object
+    step: Object,
   },
-}
+};
 </script>

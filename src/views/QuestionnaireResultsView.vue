@@ -47,15 +47,15 @@ export default {
   name: 'QuestionnaireResults',
   components: {
     TheHeaderBar,
-    RouteTitle
+    RouteTitle,
   },
-  data: function() {
+  data() {
     return {
       result: null,
-    }
+    };
   },
   computed: {
-    imageBaseUrl: function () {
+    imageBaseUrl() {
       return getImageUrl();
     },
   },
@@ -67,6 +67,6 @@ export default {
 
     const response = await axios.get(`${process.env.VUE_APP_API_HOST}/questionnaire-results?OptionSlug_eq=${result}`);
     this.result = response.data[0];
-  }
-}
+  },
+};
 </script>

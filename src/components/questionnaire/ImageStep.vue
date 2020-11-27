@@ -36,25 +36,25 @@ import getImageUrl from '../../utils/image';
 export default {
   name: 'ImageStep',
   props: {
-    stepData: Object
+    stepData: Object,
   },
   components: {
     VueShowdown,
   },
   methods: {
-    selectOption: function (option) {
+    selectOption(option) {
       option.stepNumber = this.stepData.StepNumber;
 
       this.$store.commit('addSelectedOption', { option });
-    }
+    },
   },
   computed: {
-    imageBaseUrl: function () {
+    imageBaseUrl() {
       return getImageUrl();
     },
-    selectedOption: function () {
-      return this.$store.getters.getSelectedOptionByStep(this.stepData.StepNumber)
-    }
-  }
-}
+    selectedOption() {
+      return this.$store.getters.getSelectedOptionByStep(this.stepData.StepNumber);
+    },
+  },
+};
 </script>

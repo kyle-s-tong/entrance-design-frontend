@@ -29,15 +29,15 @@ export default {
     RouteTitle,
     GalleryGrid,
   },
-  data: function () {
+  data() {
     return {
       galleries: [],
-    }
+    };
   },
   async mounted() {
     // TODO: handle errors
     const response = await axios.get(`${process.env.VUE_APP_API_HOST}/galleries`);
     this.galleries = response.data;
   },
-}
+};
 </script>

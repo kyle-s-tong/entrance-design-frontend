@@ -25,7 +25,7 @@ export default new Vuex.Store({
       state.emailAddress = payload.emailAddress;
     },
     addSelectedOption(state, payload) {
-      const selectionExists = state.selectedOptions.findIndex(option => option.stepNumber === payload.option.stepNumber);
+      const selectionExists = state.selectedOptions.findIndex((option) => option.stepNumber === payload.option.stepNumber);
       if (selectionExists !== -1) {
         state.selectedOptions.splice(selectionExists, 1);
         state.selectedOptions.push(payload.option);
@@ -41,33 +41,20 @@ export default new Vuex.Store({
 
       // Disable features in production
       state.featuresEnabled = {
-        shopEnabled: environment !== 'production'
+        shopEnabled: environment !== 'production',
       };
-    }
+    },
   },
   getters: {
-    getSelectedOptionByStep: (state) => (step) => {
-      return state.selectedOptions.find(selectedOptions => selectedOptions.stepNumber === step)
-    },
-    getFullResults: (state) => () => {
-      return state.selectedOptions.map((option) => {
-        return {
-          step: option.stepNumber,
-          score: option.CategoryValues['category-map'],
-        }
-      })
-    },
-    getFinalResult: (state) => () => {
-      return state.finalResult;
-    },
-    getName: (state) => () => {
-      return state.name;
-    },
-    getEmailAddress: (state) => () => {
-      return state.emailAddress;
-    },
-    getFeaturesEnabled: (state) => () => {
-      return state.featuresEnabled;
-    }
+    getSelectedOptionByStep: (state) => (step) => state.selectedOptions.find(
+      (selectedOptions) => selectedOptions.stepNumber === step,
+    ),
+    getFullResults: (state) => () => state.selectedOptions.map((option) => ({
+      step: option.stepNumber,
+      score: option.CategoryValues['category-map'],
+    })),
+    getFinalResult: (state) => () => state.finalResult,
+    getName: (state) => () => state.name,
+    getEmailAddress: (state) => () => state.emailAddress,
   },
 });

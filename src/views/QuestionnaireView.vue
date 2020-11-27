@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import TheHeaderBar from '../components/TheHeaderBar';
 import RouteTitle from '../components/RouteTitle';
 // TODO: refactor this stuff later since it's not DRY at all
@@ -36,8 +37,6 @@ import Step4 from '../components/questionnaire/Step4';
 import Step5 from '../components/questionnaire/Step5';
 import Step6 from '../components/questionnaire/Step6';
 import Step7 from '../components/questionnaire/Step7';
-
-import axios from 'axios';
 
 export default {
   name: 'QuestionnaireView',
@@ -52,13 +51,13 @@ export default {
     Step6,
     Step7,
   },
-  data: function () {
+  data() {
     return {
       errors: [],
       questionnaire: null,
       currentStep: 1,
       finalStep: null,
-    }
+    };
   },
   methods: {
     goToNextStep() {
@@ -123,11 +122,11 @@ export default {
             sumResults[category] = score[category];
           }
         }
-      })
+      });
 
       const resultValues = Object.values(sumResults);
       const max = Math.max(...resultValues);
-      const highestScore = Object.keys(sumResults).find(key => sumResults[key] === max);
+      const highestScore = Object.keys(sumResults).find((key) => sumResults[key] === max);
 
       return highestScore;
     },
@@ -136,16 +135,17 @@ export default {
         email: this.$store.getters.getEmailAddress(),
         username: this.$store.getters.getEmailAddress(),
         password: Math.random().toString(36).substring(7),
-        questionnaireResult: result
-      }
+        questionnaireResult: result,
+      };
 
       axios.post(
         `${process.env.VUE_APP_API_HOST}/questionnaire-results`,
         JSON.stringify(requestBody),
         {
-          headers: {'Content-Type': 'application/json'}
-        });
-    }
+          headers: { 'Content-Type': 'application/json' },
+        },
+      );
+    },
   },
   computed: {
     currentStepComponent() {
@@ -157,15 +157,13 @@ export default {
         return;
       }
 
-      const filtered = this.questionnaire.filter((question) => {
-        return question.StepNumber === this.currentStep;
-      })
+      const filtered = this.questionnaire.filter((question) => question.StepNumber === this.currentStep);
       if (filtered.length === 0) {
         return;
       }
 
       return filtered[0];
-    }
+    },
   },
   async mounted() {
     // TODO: handle errors
@@ -173,5 +171,5 @@ export default {
     this.questionnaire = response.data;
     this.finalStep = response.data.length;
   },
-}
+};
 </script>

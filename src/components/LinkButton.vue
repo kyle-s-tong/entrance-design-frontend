@@ -14,13 +14,13 @@ export default {
     linkType: {
       type: String,
       default: 'dark',
-    }
+    },
   },
-  data: function () {
+  data() {
     return {
       darkLink: 'uppercase p-4 bg-black bg-opacity-25 text-center text-xs md:text-sm xl:text-lg',
-      lightLink: 'p-2 xl:p-6 text-xs md:text-sm xl:text-lg'
-    }
-  }
-}
+      lightLink: 'p-2 xl:p-6 text-xs md:text-sm xl:text-lg',
+    };
+  },
+};
 </script>

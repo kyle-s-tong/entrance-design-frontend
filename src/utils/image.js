@@ -3,7 +3,6 @@ export default function getImageRootUrl() {
 
   if (NODE_ENV === 'production') {
     return '';
-  } else {
-    return VUE_APP_API_HOST;
   }
+  return VUE_APP_API_HOST;
 }

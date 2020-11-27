@@ -8,10 +8,10 @@ import ImageStep from './ImageStep';
 export default {
   name: 'Step6',
   props: {
-    stepData: Object
+    stepData: Object,
   },
   components: {
     ImageStep,
   },
-}
+};
 </script>
