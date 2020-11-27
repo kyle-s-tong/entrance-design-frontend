@@ -15,6 +15,7 @@ export default new Vuex.Store({
     featuresEnabled: {
       shopEnabled: false,
     },
+    shoppingCart: [],
   },
   mutations: {
     setName(state, payload) {

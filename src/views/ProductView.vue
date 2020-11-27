@@ -13,7 +13,7 @@
             <img :src="`${imageBaseUrl}${product.Images[0].url}`" class="h-full">
           </div>
           <div class="w-1/2 p-4 bg-entrance-background-gray flex flex-col justify-center">
-            <div class="h-2/3 px-4">
+            <div class="px-4">
               <div class="text-4xl pb-4 uppercase">
                 {{ product.Title }}
               </div>
@@ -23,11 +23,16 @@
               <VueShowdown :markdown="product.Description" class="text-justify flex-grow" />
               <div class="pt-16 w-1/2">
                 <div class="flex w-1/2">
-                  <button class="pr-4">+</button>
-                  <input type="text" value="1" class="flex p-1 w-1/2 text-center">
-                  <button class="pl-4">-</button>
+                  <button class="px-1 mr-3" v-on:click="removeAmount">-</button>
+                  <input type="text" v-model="amount" class="flex p-1 w-1/2 text-center">
+                  <button class="px-1 ml-3" v-on:click="addAmount">+</button>
                 </div>
-                <button class="p-2 my-2 rounded border border-white self-start hover:bg-entrance-gray text-white uppercase bg-entrance-gray-text">Add to cart</button>
+                <button
+                  class="p-2 my-2 rounded border border-white self-start hover:bg-entrance-gray text-white uppercase bg-entrance-gray-text"
+                  v-on:click="addToCart"
+                >
+                  Add to cart
+                </button>
               </div>
             </div>
           </div>
@@ -47,7 +52,7 @@ import RouteTitle from '../components/RouteTitle';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 export default {
-  name: 'ShopView',
+  name: 'ProductView',
   components: {
     TheHeaderBar,
     RouteTitle,
@@ -58,9 +63,21 @@ export default {
     return {
       product: null,
       loading: true,
+      amount: 1
     }
   },
   methods: {
+    addToCart() {
+
+    },
+    addAmount() {
+      ++this.amount;
+    },
+    removeAmount() {
+      if (this.amount > 1) {
+        --this.amount;
+      }
+    },
     handleClickedSlide(direction) {
       const maxLength = this.galleryItem.GalleryImages.length;
       const currentIndex = this.mainGallery.activeIndex;
