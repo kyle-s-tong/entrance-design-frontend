@@ -50,6 +50,9 @@ export default new Vuex.Store({
       const { item } = payload;
       state.shoppingCart = [...state.shoppingCart, item];
     },
+    clearCart(state) {
+      state.shoppingCart = [];
+    },
   },
   getters: {
     getSelectedOptionByStep: (state) => (step) => state.selectedOptions.find(
