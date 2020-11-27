@@ -7,7 +7,10 @@
       <div v-if="this.loading" class="flex h-4/5 justify-center items-center">
         <LoadingSpinner />
       </div>
-      <div v-if="!this.loading && this.product" class="flex h-4/5 justify-center bg-white bg-opacity-50">
+      <div
+        v-if="!this.loading && this.product"
+        class="flex h-4/5 justify-center bg-white bg-opacity-50"
+      >
         <div class="flex justify-center w-10/12 my-16">
           <div class="w-1/2 p-4 bg-white flex flex-col justify-center object-fit">
             <img :src="`${imageBaseUrl}${product.Images[0].url}`" class="h-full">
@@ -57,25 +60,25 @@ export default {
     TheHeaderBar,
     RouteTitle,
     LoadingSpinner,
-    VueShowdown
+    VueShowdown,
   },
-  data: function () {
+  data() {
     return {
       product: null,
       loading: true,
-      amount: 1
-    }
+      amount: 1,
+    };
   },
   methods: {
     addToCart() {
 
     },
     addAmount() {
-      ++this.amount;
+      this.amount += 1;
     },
     removeAmount() {
       if (this.amount > 1) {
-        --this.amount;
+        this.amount -= 1;
       }
     },
     handleClickedSlide(direction) {
@@ -103,10 +106,10 @@ export default {
     slideBothGalleriesToIndex(index) {
       this.mainGallery.slideTo(index);
       this.thumbs.slideTo(index);
-    }
+    },
   },
   computed: {
-    imageBaseUrl: function () {
+    imageBaseUrl() {
       return getImageUrl();
     },
   },
@@ -114,6 +117,6 @@ export default {
     const response = await axios.get(`${process.env.VUE_APP_API_HOST}/products/${this.$route.params.product_id}`);
     this.product = response.data;
     this.loading = false;
-  }
-}
+  },
+};
 </script>

@@ -19,5 +19,20 @@ module.exports = {
     'vue',
   ],
   rules: {
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        vue: 'never',
+      },
+    ],
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.json', '.vue'],
+      },
+    },
+  }
 };
