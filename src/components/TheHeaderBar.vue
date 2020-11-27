@@ -112,29 +112,29 @@ export default {
     scrollDown() {
       this.navCollapsed = true;
     },
-    isShopEnabled: function () {
+    isShopEnabled() {
       const features = this.$store.getters.getFeaturesEnabled();
       if (features.shopEnabled === true) {
         const endLink = this.headerBarLinks.pop();
 
         this.headerBarLinks.push({
           text: 'Shop',
-          route: '/shop'
+          route: '/shop',
         });
 
         this.headerBarLinks.push(endLink);
       }
-    }
+    },
   },
   created() {
     this.windowWidth = window.innerWidth;
     window.addEventListener('scroll', () => {
       this.scrollDetect(this.scrollHome, this.scrollDown);
-    })
+    });
 
     this.isShopEnabled();
-  }
-}
+  },
+};
 </script>
 
 <style>

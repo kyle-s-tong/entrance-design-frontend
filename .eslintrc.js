@@ -4,6 +4,7 @@ module.exports = {
     es6: true,
   },
   extends: [
+    'plugin:vue/base',
     'plugin:vue/essential',
     'airbnb-base',
   ],
@@ -27,6 +28,15 @@ module.exports = {
         vue: 'never',
       },
     ],
+    'no-param-reassign': [
+      'error',
+      {
+        'props': true,
+        'ignorePropertyModificationsFor': [
+          'state'
+        ]
+      }
+    ]
   },
   settings: {
     'import/resolver': {

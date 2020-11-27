@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import { createRouter } from './router';
+import createRouter from './router';
 import store from './store';
-import App from './App.vue';
+import App from './App';
 
 import './assets/tailwind.css';
 

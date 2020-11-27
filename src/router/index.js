@@ -1,16 +1,16 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import HomeView from '../views/HomeView.vue';
-import GalleryView from '../views/GalleryView.vue';
-import GallerySingleView from '../views/GallerySingleView.vue';
-import PricingView from '../views/PricingView.vue';
-import ContactUsView from '../views/ContactUsView.vue';
-import ShopView from '../views/ShopView.vue';
-import ShopCategoryView from '../views/ShopCategoryView.vue';
-import ProductView from '../views/ProductView.vue';
-import QuestionnaireView from '../views/QuestionnaireView.vue';
-import QuestionnaireResultsView from '../views/QuestionnaireResultsView.vue';
+import HomeView from '../views/HomeView';
+import GalleryView from '../views/GalleryView';
+import GallerySingleView from '../views/GallerySingleView';
+import PricingView from '../views/PricingView';
+import ContactUsView from '../views/ContactUsView';
+import ShopView from '../views/ShopView';
+import ShopCategoryView from '../views/ShopCategoryView';
+import ProductView from '../views/ProductView';
+import QuestionnaireView from '../views/QuestionnaireView';
+import QuestionnaireResultsView from '../views/QuestionnaireResultsView';
 
 Vue.use(Router);
 

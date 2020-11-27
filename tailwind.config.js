@@ -23,7 +23,7 @@ module.exports = {
       entrance: {
         gray: '#c8c8c8',
         'gray-text': '#666666',
-        'background-gray': '#e6e5e3'
+        'background-gray': '#e6e5e3',
       },
 
       gray: {

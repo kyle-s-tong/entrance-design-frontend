@@ -31,7 +31,8 @@
                   <button class="px-1 ml-3" v-on:click="addAmount">+</button>
                 </div>
                 <button
-                  class="p-2 my-2 rounded border border-white self-start hover:bg-entrance-gray text-white uppercase bg-entrance-gray-text"
+                  class="p-2 my-2 rounded border border-white self-start hover:bg-entrance-gray
+                  text-white uppercase bg-entrance-gray-text"
                   v-on:click="addToCart"
                 >
                   Add to cart
@@ -71,7 +72,7 @@ export default {
   },
   methods: {
     addToCart() {
-
+      this.$store.commit('addToCart', { item: this.product });
     },
     addAmount() {
       this.amount += 1;

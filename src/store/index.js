@@ -25,7 +25,9 @@ export default new Vuex.Store({
       state.emailAddress = payload.emailAddress;
     },
     addSelectedOption(state, payload) {
-      const selectionExists = state.selectedOptions.findIndex((option) => option.stepNumber === payload.option.stepNumber);
+      const selectionExists = state.selectedOptions.findIndex(
+        (option) => option.stepNumber === payload.option.stepNumber,
+      );
       if (selectionExists !== -1) {
         state.selectedOptions.splice(selectionExists, 1);
         state.selectedOptions.push(payload.option);
@@ -44,6 +46,10 @@ export default new Vuex.Store({
         shopEnabled: environment !== 'production',
       };
     },
+    addToCart(state, payload) {
+      const { item } = payload;
+      state.shoppingCart = [...state.shoppingCart, item];
+    },
   },
   getters: {
     getSelectedOptionByStep: (state) => (step) => state.selectedOptions.find(
@@ -56,5 +62,8 @@ export default new Vuex.Store({
     getFinalResult: (state) => () => state.finalResult,
     getName: (state) => () => state.name,
     getEmailAddress: (state) => () => state.emailAddress,
+    getFeaturesEnabled: (state) => () => state.featuresEnabled,
+    getShoppingCart: (state) => () => state.shoppingCart,
+    getNumberOfItemsInCart: (state) => () => state.shoppingCart.length,
   },
 });
