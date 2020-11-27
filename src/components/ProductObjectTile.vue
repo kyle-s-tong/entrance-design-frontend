@@ -23,24 +23,24 @@ export default {
     object: Object,
     objectType: String,
   },
-  data: function () {
+  data() {
     return {
-    }
+    };
   },
   computed: {
-    imageBaseUrl: function () {
+    imageBaseUrl() {
       return getImageUrl();
     },
-    hasMultipleImages: function() {
+    hasMultipleImages() {
       return typeof this.object.Images !== 'undefined';
     },
-    routerLinkUrl: function() {
+    routerLinkUrl() {
       if (this.objectType === 'product') {
         return `/shop/categories/${this.object.ProductCategory}/products/${this.object.id}`;
-      } else {
-        return `/shop/categories/${this.object.id}`;
       }
-    }
-  }
-}
+
+      return `/shop/categories/${this.object.id}`;
+    },
+  },
+};
 </script>

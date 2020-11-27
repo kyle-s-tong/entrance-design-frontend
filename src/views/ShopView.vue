@@ -4,11 +4,21 @@
       <TheHeaderBar :isCollapsed="true" />
       <RouteTitle :title="'Shop'" />
     </div>
-    <div class="flex justify-center">
+    <div class="flex flex-col items-center justify-center">
       <div class="py-32 w-2/3">
-        <div class="flex flex-col md:flex-row grid grid-cols-1 md:grid-cols-4 gap-4 items-center w-full">
+        <div class="flex flex-col md:flex-row grid grid-cols-1
+                    md:grid-cols-4 gap-4 items-center w-full"
+        >
           <ProductObjectTile v-for="category in categories" :key="category.id" :object="category" />
         </div>
+      </div>
+      <div class="flex justify-center w-2/3">
+        <button
+          class="p-2 my-2 rounded border border-white self-start hover:bg-entrance-gray
+                 text-white uppercase bg-entrance-gray-text"
+        >
+          You have items in your cart. Click here to checkout.
+        </button>
       </div>
     </div>
   </div>
@@ -28,14 +38,19 @@ export default {
     RouteTitle,
     ProductObjectTile,
   },
-  data: function () {
+  data() {
     return {
-      categories: []
-    }
+      categories: [],
+      showCheckoutButton: false,
+    };
   },
   async mounted() {
     const response = await axios.get(`${process.env.VUE_APP_API_HOST}/product-categories`);
     this.categories = response.data;
-  }
-}
+
+    if (this.$store.getters.getNumberOfItemsInCart() > 0) {
+      this.showCheckoutButton = true;
+    }
+  },
+};
 </script>

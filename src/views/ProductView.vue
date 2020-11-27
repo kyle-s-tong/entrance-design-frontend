@@ -112,6 +112,7 @@ export default {
       amount: 1,
       thumbs: null,
       mainGallery: null,
+      showCheckoutModal: false,
       swiperOptions: {
         loop: false,
         spaceBetween: 10,
