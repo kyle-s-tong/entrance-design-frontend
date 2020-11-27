@@ -11,19 +11,19 @@ import QuestionnaireResultsView from '../views/QuestionnaireResultsView.vue';
 
 Vue.use(Router);
 
-export function createRouter () {
+export function createRouter() {
   return new Router({
     mode: 'history',
     fallback: false,
     scrollBehavior: (to) => {
       if (to.hash) {
         return {
-          selector: to.hash
+          selector: to.hash,
           // , offset: { x: 0, y: 10 }
-        }
+        };
       }
 
-      return { x: 0, y: 0 }
+      return { x: 0, y: 0 };
     },
     routes: [
       { path: '/', component: HomeView },
@@ -31,9 +31,9 @@ export function createRouter () {
       { path: '/gallery/:id', component: GallerySingleView },
       { path: '/pricing', component: PricingView },
       { path: '/contact-us', component: ContactUsView },
-      { path: '/questionnaire', component: QuestionnaireView},
+      { path: '/questionnaire', component: QuestionnaireView },
       { path: '/questionnaire/results', component: QuestionnaireResultsView },
       { path: '/home', redirect: '/' },
-    ]
-  })
+    ],
+  });
 }

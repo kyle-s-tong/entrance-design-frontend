@@ -40,14 +40,14 @@ export default {
     RouteTitle,
     PricingTile,
   },
-  data: function () {
+  data() {
     return {
       pricings: [],
-    }
+    };
   },
   async mounted() {
     const response = await axios.get(`${process.env.VUE_APP_API_HOST}/pricings`);
     this.pricings = response.data;
-  }
-}
+  },
+};
 </script>

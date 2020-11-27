@@ -39,14 +39,14 @@ export const stepDetails = [
   {
     number: 3,
     title: 'Digital collaboration',
-    description: `You send us measurements and images, we send you back concepts.`,
+    description: 'You send us measurements and images, we send you back concepts.',
     image: require('../assets/steps/step4-digitalcollab.jpg'),
     reverse: true,
   },
   {
     number: 4,
     title: 'Your concept design supplied',
-    description: `We send you a mood board & shopping list to make your interiors work.`,
+    description: 'We send you a mood board & shopping list to make your interiors work.',
     image: require('../assets/steps/step5-moodboard.jpg'),
   },
 ];

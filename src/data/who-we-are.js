@@ -27,5 +27,5 @@ export const whoWeAre = {
   link: {
     text: 'Contact us to get started',
     route: '/contact-us',
-  }
-}
+  },
+};

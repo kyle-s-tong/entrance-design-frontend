@@ -21,7 +21,7 @@ export default new Vuex.Store({
       state.emailAddress = payload.emailAddress;
     },
     addSelectedOption(state, payload) {
-      const selectionExists = state.selectedOptions.findIndex(option => option.stepNumber === payload.option.stepNumber);
+      const selectionExists = state.selectedOptions.findIndex((option) => option.stepNumber === payload.option.stepNumber);
       if (selectionExists !== -1) {
         state.selectedOptions.splice(selectionExists, 1);
         state.selectedOptions.push(payload.option);
@@ -31,28 +31,16 @@ export default new Vuex.Store({
     },
     setFinalResult(state, payload) {
       state.finalResult = payload.calculatedFinalResult;
-    }
+    },
   },
   getters: {
-    getSelectedOptionByStep: (state) => (step) => {
-      return state.selectedOptions.find(selectedOptions => selectedOptions.stepNumber === step)
-    },
-    getFullResults: (state) => () => {
-      return state.selectedOptions.map((option) => {
-        return {
-          step: option.stepNumber,
-          score: option.CategoryValues['category-map'],
-        }
-      })
-    },
-    getFinalResult: (state) => () => {
-      return state.finalResult;
-    },
-    getName: (state) => () => {
-      return state.name;
-    },
-    getEmailAddress: (state) => () => {
-      return state.emailAddress;
-    }
+    getSelectedOptionByStep: (state) => (step) => state.selectedOptions.find((selectedOptions) => selectedOptions.stepNumber === step),
+    getFullResults: (state) => () => state.selectedOptions.map((option) => ({
+      step: option.stepNumber,
+      score: option.CategoryValues['category-map'],
+    })),
+    getFinalResult: (state) => () => state.finalResult,
+    getName: (state) => () => state.name,
+    getEmailAddress: (state) => () => state.emailAddress,
   },
 });

@@ -36,20 +36,20 @@ export default {
   props: {
     pricing: Object,
   },
-  data: function () {
+  data() {
     return {
       questionnaireButton: {
         text: 'Click here to get started',
         route: '/questionnaire',
       },
-    }
+    };
   },
   computed: {
-    imageBaseUrl: function () {
+    imageBaseUrl() {
       return getImageUrl();
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style>

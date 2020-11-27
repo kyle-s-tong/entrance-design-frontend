@@ -21,6 +21,6 @@ export default {
   },
   props: {
     step: Object,
-  }
-}
+  },
+};
 </script>

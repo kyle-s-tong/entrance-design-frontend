@@ -39,7 +39,7 @@ export default {
   name: 'Step1',
   props: {
     stepData: Object,
-    errors: Array
+    errors: Array,
   },
   components: {
     VueShowdown,
@@ -49,18 +49,18 @@ export default {
       get() {
         return this.$store.state.name;
       },
-      set (value) {
+      set(value) {
         this.$store.commit('setName', { name: value });
-      }
+      },
     },
     emailAddress: {
       get() {
         return this.$store.state.emailAddress;
       },
-      set (value) {
+      set(value) {
         this.$store.commit('setEmailAddress', { emailAddress: value });
-      }
-    }
-  }
-}
+      },
+    },
+  },
+};
 </script>

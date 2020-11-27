@@ -15,17 +15,17 @@ import getImageUrl from '../utils/image';
 export default {
   name: 'GalleryGrid',
   props: {
-    galleries: Array
+    galleries: Array,
   },
   computed: {
-    imageBaseUrl: function () {
+    imageBaseUrl() {
       return getImageUrl();
-    }
+    },
   },
   methods: {
-    refreshGalleryRoute: function () {
+    refreshGalleryRoute() {
       this.$router.go();
-    }
-  }
-}
+    },
+  },
+};
 </script>

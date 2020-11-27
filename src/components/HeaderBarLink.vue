@@ -12,7 +12,7 @@ export default {
     isCollapsed: {
       type: Boolean,
       default: false,
-    }
-  }
-}
+    },
+  },
+};
 </script>
