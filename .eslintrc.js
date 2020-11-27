@@ -36,7 +36,8 @@ module.exports = {
           'state'
         ]
       }
-    ]
+    ],
+    'vue/experimental-script-setup-vars': 'off',
   },
   settings: {
     'import/resolver': {
