@@ -12,7 +12,7 @@
           <ProductObjectTile v-for="category in categories" :key="category.id" :object="category" />
         </div>
       </div>
-      <div class="flex justify-center w-2/3">
+      <div v-if="showCheckoutButton" class="flex justify-center w-2/3">
         <button
           class="p-2 my-2 rounded border border-white self-start hover:bg-entrance-gray
                  text-white uppercase bg-entrance-gray-text"

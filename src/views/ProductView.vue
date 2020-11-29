@@ -62,19 +62,29 @@
                 ${{ product.Price }}
               </div>
               <VueShowdown :markdown="product.Description" class="text-justify flex-grow" />
-              <div class="pt-16 w-1/2">
-                <div class="flex w-1/2">
+              <div class="flex flex-col pt-16 w-full lg:items-center">
+                <div class="flex w-1/4">
                   <button class="px-1 mr-3" v-on:click="removeAmount">-</button>
                   <input type="text" v-model="amount" class="flex p-1 w-1/2 text-center">
                   <button class="px-1 ml-3" v-on:click="addAmount">+</button>
                 </div>
-                <button
-                  class="p-2 my-2 rounded border border-white self-start hover:bg-entrance-gray
-                  text-white uppercase bg-entrance-gray-text"
-                  v-on:click="addToCart"
-                >
-                  Add to cart
-                </button>
+                <div class="flex w-full justify-between">
+                  <button
+                    class="p-2 mt-2 rounded border border-white self-start hover:bg-entrance-gray
+                          text-white uppercase bg-entrance-gray-text"
+                    v-on:click="addToCart"
+                  >
+                    Add to cart
+                  </button>
+                  <router-link
+                    to="/shop/checkout"
+                    v-if="showCheckoutButton"
+                    class="p-2 mt-2 rounded border border-white self-start hover:bg-entrance-gray
+                          text-white uppercase bg-entrance-gray-text"
+                  >
+                    Checkout ({{ numberOfItemsInCart }})
+                  </router-link>
+                </div>
               </div>
             </div>
           </div>
@@ -112,7 +122,6 @@ export default {
       amount: 1,
       thumbs: null,
       mainGallery: null,
-      showCheckoutModal: false,
       swiperOptions: {
         loop: false,
         spaceBetween: 10,
@@ -173,6 +182,16 @@ export default {
   computed: {
     imageBaseUrl() {
       return getImageUrl();
+    },
+    showCheckoutButton() {
+      if (this.$store.getters.getNumberOfItemsInCart() > 0) {
+        return true;
+      }
+
+      return false;
+    },
+    numberOfItemsInCart() {
+      return this.$store.getters.getNumberOfItemsInCart();
     },
   },
   async mounted() {
