@@ -50,6 +50,13 @@ export default new Vuex.Store({
       const { item } = payload;
       state.shoppingCart = [...state.shoppingCart, item];
     },
+    removeFromCart(state, payload) {
+      const { item } = payload;
+      if (state.shoppingCart.includes(item)) {
+        const index = state.shoppingCart.indexOf(item);
+        state.shoppingCart.splice(index, 1);
+      }
+    },
     clearCart(state) {
       state.shoppingCart = [];
     },

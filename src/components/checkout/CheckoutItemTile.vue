@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     removeFromCart() {
-      console.log(this.item);
+      this.$store.commit('removeFromCart', { item: this.item });
     },
   },
 };

@@ -12,11 +12,17 @@
               Please review the items in your cart and then proceed to checkout:
             </p>
           </div>
-          <div class="h-full w-3/4 self-center items-center overflow-y-auto grid grid-cols-1 gap-1">
+          <div v-if="itemsInCart"
+            class="h-full w-3/4 self-center items-center overflow-y-auto grid grid-cols-1 gap-1">
             <CheckoutItemTile v-for="(item, index) in itemsInCart" :key="index" :item="item" />
+          </div>
+          <div v-else class="pt-16 self-center">
+            Please add some items to your cart to continue.
           </div>
         </div>
         <button
+          v-on:click="showModal = true"
+          v-if="itemsInCart"
           type="button"
           class="p-2 mt-16 rounded border border-white self-end hover:bg-entrance-gray
                 text-white uppercase bg-entrance-gray-text"
