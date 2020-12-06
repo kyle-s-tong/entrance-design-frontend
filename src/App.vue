@@ -8,11 +8,6 @@
 
 export default {
   name: 'App',
-  components: {
-  },
-  mounted() {
-    console.log(process.env)
-  },
 };
 </script>
 
