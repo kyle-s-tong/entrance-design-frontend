@@ -13,7 +13,7 @@ export default new Vuex.Store({
     finalResult: '',
     selectedOptions: [],
     featuresEnabled: {
-      shopEnabled: false,
+      shopEnabled: process.env.VUE_APP_SHOP_ENABLED === 'true',
     },
     shoppingCart: [],
   },
@@ -37,14 +37,6 @@ export default new Vuex.Store({
     },
     setFinalResult(state, payload) {
       state.finalResult = payload.calculatedFinalResult;
-    },
-    setFeaturesEnabled(state, payload) {
-      const { environment } = payload;
-
-      // Disable features in production
-      state.featuresEnabled = {
-        shopEnabled: environment !== 'production',
-      };
     },
     addToCart(state, payload) {
       const { item } = payload;

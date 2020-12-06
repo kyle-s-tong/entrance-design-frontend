@@ -1,5 +1,5 @@
 <template>
-  <div class="loader">
+  <div v-bind:class="className">
   </div>
 </template>
 
@@ -7,17 +7,29 @@
 export default {
   name: 'LoadingSpinner',
   props: {
+    color: String,
   },
-  data: function () {
+  data() {
     return {
-    }
-  }
-}
+    };
+  },
+  computed: {
+    className() {
+      if (this.color === 'black') {
+        return 'loader-black';
+      }
+
+      return 'loader';
+    },
+  },
+};
 </script>
 
 <style scoped>
   .loader,
-  .loader:after {
+  .loader-black,
+  .loader:after,
+  .loader-black:after {
     border-radius: 50%;
     width: 10em;
     height: 10em;
@@ -36,6 +48,21 @@ export default {
     -webkit-animation: load 1.1s infinite linear;
     animation: load 1.1s infinite linear;
   }
+  .loader-black {
+    margin: 2px auto;
+    font-size: 4px;
+    position: relative;
+    border-top: 1.1em solid rgba(0, 0, 0, 0.2);
+    border-right: 1.1em solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1.1em solid rgba(0, 0, 0, 0.2);
+    border-left: 1.1em solid #000000;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load 1.1s infinite linear;
+    animation: load 1.1s infinite linear;
+  }
+
   @-webkit-keyframes load {
     0% {
       -webkit-transform: rotate(0deg);

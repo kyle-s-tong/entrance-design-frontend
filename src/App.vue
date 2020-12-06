@@ -11,7 +11,7 @@ export default {
   components: {
   },
   mounted() {
-    this.$store.commit('setFeaturesEnabled', { environment: process.env.NODE_ENV });
+    console.log(process.env)
   },
 };
 </script>

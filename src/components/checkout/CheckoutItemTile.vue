@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-full h-full divide-x items-center border
+    <div class="flex w-full divide-x items-center border
                 rounded border-gray m-1 p-1 bg-white bg-opacity-75">
       <router-link :to="routerLinkUrl" class="w-2/3">
         <div class="flex items-center">
