@@ -19,8 +19,15 @@
             <img :src="this.whoWeAreSection.image" class="w-full">
           </div>
           <div class="w-full pt-4 md:pt-0 md:w-2/3 md:pl-16">
-            <h2 class="text-lg text-center md:text-left md:text-3xl pb-4">{{ this.whoWeAreSection.title }}</h2>
-            <div v-html="this.whoWeAreSection.description" class="pt-0 lg:pt-2 text-justify text-xs lg:text-sm" />
+            <h2
+              class="text-lg text-center md:text-left md:text-3xl pb-4"
+            >
+              {{ this.whoWeAreSection.title }}
+            </h2>
+            <div
+              v-html="this.whoWeAreSection.description"
+              class="pt-0 lg:pt-2 text-justify text-xs lg:text-sm"
+            />
           </div>
         </div>
         <LinkButton :link="this.whoWeAreSection.link" class="pt-6 lg:pt-2" />
