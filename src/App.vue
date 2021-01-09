@@ -13,7 +13,7 @@ export default {
 
 <style>
   .background {
-    background-image: url("./assets/background-image.jpg") ;
+    background-image: url("./assets/background-image.png") ;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -25,6 +25,15 @@ export default {
     background-size: cover;
     background-size: 90% 90%;
     background-position: 100% 75%;
+    color: black;
+  }
+
+  .brush {
+    background: url("./assets/brush.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 90% 90%;
+    background-position: 100% 200%;
     color: black;
   }
 
