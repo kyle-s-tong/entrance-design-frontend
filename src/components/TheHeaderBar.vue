@@ -5,7 +5,10 @@
         'w-3/4 lg:w-7/8 xl:w-3/4 justify-between items-center' :
         'flex-col items-end w-full px-2 lg:px-0 lg:w-10/12']"
       >
-      <HeaderBarLogo :logoClass="'hidden sm:flex w-3/12 xl:w-2/12'" v-if="this.navCollapsed"/>
+      <HeaderBarLogo
+        :logoClass="'hidden sm:flex w-3/12 xl:w-2/12'"
+        v-if="this.navCollapsed"
+      />
       <div class="w-full flex xs:flex-col justify-center md:justify-between">
         <HeaderBarLogo
           :logoClass="'sm:pr-4 hidden sm:flex w-3/12 xl:w-2/12 pt-2'"
@@ -27,12 +30,13 @@
       </div>
       <HeaderBarLogo :logoClass="'sm:hidden w-10/12 self-center pt-20'" v-if="!this.navCollapsed" />
       <h1
-        class="pt-8 sm:pt-32 lg:pt-64 pb-4 sm:pb-20 self-center sm:self-end text-center
+        class="pt-8 sm:pt-32 lg:pt-64 pb-4 xl:mr-32 sm:pb-20 self-center text-center
               sm:text-right text-md md:text-3xl xl:text-5xl uppercase text-white tracking-wide"
         v-if="!this.navCollapsed">
           Interior design on your terms
       </h1>
-      <LinkButton
+      <!-- Just in case we want it later somewhere else. -->
+      <!-- <LinkButton
         :link="this.questionnaireButton"
         v-if="!this.navCollapsed"
         class="pt-4 self-center sm:self-end"
@@ -62,7 +66,7 @@
             alt="Link to Entrance Design's Pinterest page"
           >
         </a>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -114,10 +118,10 @@ export default {
   computed: {
     navBarState() {
       return {
-        'bg-black': this.navCollapsed,
-        'bg-opacity-50': this.navCollapsed,
+        'bg-entrance-brown h-24 text-white': this.navCollapsed,
         collapse: this.navCollapsed,
         open: !this.navCollapsed,
+        'text-white': !this.navCollapsed,
       };
     },
     sizeAdjustedCollapsePoint() {

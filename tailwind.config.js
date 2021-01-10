@@ -21,6 +21,10 @@ module.exports = {
       white: '#fff',
 
       entrance: {
+        brown: '#edd1b7',
+        'dark-brown': '#612700',
+        pink: '#f3e8e6',
+        'light-gray': '#e5e4e2',
         gray: '#c8c8c8',
         'gray-text': '#666666',
         'background-gray': '#e6e5e3',
@@ -375,6 +379,7 @@ module.exports = {
       0: '0',
       25: '0.25',
       50: '0.5',
+      66: '0.66',
       75: '0.75',
       90: '0.90',
       100: '1',

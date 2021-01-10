@@ -3,14 +3,40 @@
     <div class="flex w-full justify-center h-2/3 md:h-9/10 bg-black bg-opacity-25">
       <TheHeaderBar />
     </div>
+    <div class="flex flex-col w-full  h-full background">
+      <div class="w-full h-full flex flex-col items-center
+                justify-center bg-entrance-brown bg-opacity-75"
+      >
+        <div class="h-1/2 w-2/3 text-entrance-dark-brown flex
+                flex-col justify-center items-center brush"
+        >
+          <h2 class="text-5xl text-center mt-8 tracking-wide">
+            Our Process
+          </h2>
+          <div>
+            <p class="highlight text-center text-xl">
+              From interiors to renovations to furniture sourcing<br>
+              <span class="uppercase">Our passion is creating a home to enhance your living</span>
+            </p>
+            <p class="pt-8 flex flex-col">
+              <span>“Your home should tell the story of who you are,
+                and be a collection of what you love.”</span>
+              <span class="self-end text-xs">Nate Berkus, The Things That Matter</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="flex w-full justify-center flex-col background">
       <StepTile v-for="step in steps" :key="step.title" :step="step" />
     </div>
-    <div class="flex w-full justify-center background py-8">
+    <!-- <div class="flex w-full justify-center py-8">
       <LinkButton :link="this.pricingButton" />
-    </div>
-    <div class="flex w-full pt-16 pb-32" id="whoweare">
-      <div class="flex flex-col w-full items-center">
+    </div> -->
+    <div class="background flex w-full text-entrance-dark-brown" id="whoweare">
+      <div
+        class="bg-white bg-opacity-66 pt-16 pb-32 flex flex-col h-full w-full items-center"
+      >
         <div class="w-3/4 pb-2">
           <h2 class="text-center md:text-left text-xl md:text-2xl">Who we are</h2>
         </div>

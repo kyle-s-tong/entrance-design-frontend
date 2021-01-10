@@ -5,17 +5,40 @@
       <RouteTitle :title="'Design Questionnaire'" />
     </div>
     <div class="flex flex-col flex-grow">
-      <component :is="currentStepComponent" :stepData="currentStepData" :errors="errors" v-if="questionnaire"></component>
+      <div
+        v-if="this.loading"
+        class="bg-white bg-opacity-90 flex h-4/5 justify-center items-center"
+      >
+          <LoadingSpinner :color="'black'" />
+      </div>
+      <component
+        :is="currentStepComponent"
+        :stepData="currentStepData"
+        :errors="errors"
+        v-if="questionnaire"
+      ></component>
       <div class="background">
-        <div class="bg-white bg-opacity-90 flex justify-center py-2 md:py-0 md:pb-16">
+        <div else class="bg-white bg-opacity-90 flex justify-center py-2 md:py-0 md:pb-16">
           <div :class="['flex grid', currentStep > 1 ? 'grid-cols-2 gap-2' : '']">
-            <button v-if="currentStep > 1" v-on:click="goToPreviousStep" class="border-2 py-4 px-6 text-lg bg-white border-black">
+            <button
+              v-if="currentStep > 1"
+              v-on:click="goToPreviousStep"
+              class="border-2 py-4 px-6 text-lg bg-white border-black"
+            >
               Previous
             </button>
-            <button v-if="currentStep < finalStep" v-on:click="goToNextStep" class="border-2 py-4 px-6 text-lg bg-white border-black">
+            <button
+              v-if="currentStep < finalStep"
+              v-on:click="goToNextStep"
+              class="border-2 py-4 px-6 text-lg bg-white border-black"
+            >
               Next
             </button>
-            <button v-if="currentStep === finalStep" v-on:click="submitQuestionnaire" class="border-2 py-4 px-6 text-lg bg-white border-black">
+            <button
+              v-if="currentStep === finalStep"
+              v-on:click="submitQuestionnaire"
+              class="border-2 py-4 px-6 text-lg bg-white border-black"
+            >
               Get result
             </button>
           </div>
@@ -29,6 +52,7 @@
 import axios from 'axios';
 import TheHeaderBar from '../components/TheHeaderBar';
 import RouteTitle from '../components/RouteTitle';
+import LoadingSpinner from '../components/LoadingSpinner';
 // TODO: refactor this stuff later since it's not DRY at all
 import Step1 from '../components/questionnaire/Step1';
 import Step2 from '../components/questionnaire/Step2';
@@ -41,6 +65,7 @@ import Step7 from '../components/questionnaire/Step7';
 export default {
   name: 'QuestionnaireView',
   components: {
+    LoadingSpinner,
     TheHeaderBar,
     RouteTitle,
     Step1,
@@ -54,6 +79,7 @@ export default {
   data() {
     return {
       errors: [],
+      loading: false,
       questionnaire: null,
       currentStep: 1,
       finalStep: null,
@@ -115,6 +141,8 @@ export default {
 
       results.forEach((result) => {
         const { score } = result;
+        // TODO: fix
+        // eslint-disable-next-line no-restricted-syntax
         for (const category in score) {
           if (sumResults[category] !== undefined) {
             sumResults[category] += score[category];
@@ -154,12 +182,15 @@ export default {
     },
     currentStepData() {
       if (!this.questionnaire) {
-        return;
+        return null;
       }
 
-      const filtered = this.questionnaire.filter((question) => question.StepNumber === this.currentStep);
+      const filtered = this.questionnaire.filter(
+        (question) => question.StepNumber === this.currentStep,
+      );
+
       if (filtered.length === 0) {
-        return;
+        return null;
       }
 
       return filtered[0];
@@ -167,9 +198,11 @@ export default {
   },
   async mounted() {
     // TODO: handle errors
+    this.loading = true;
     const response = await axios.get(`${process.env.VUE_APP_API_HOST}/questionnaires`);
     this.questionnaire = response.data;
     this.finalStep = response.data.length;
+    this.loading = false;
   },
 };
 </script>
