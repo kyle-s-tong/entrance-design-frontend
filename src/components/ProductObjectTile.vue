@@ -2,8 +2,16 @@
   <router-link :to="routerLinkUrl">
     <div class="flex flex-col items-center">
       <div class="bg-white p-4">
-        <img v-if="!hasMultipleImages" :src="`${imageBaseUrl}${object.Image.url}`" alt="">
-        <img v-else :src="`${imageBaseUrl}${object.Images[0].url}`">
+        <img
+          v-if="!hasMultipleImages"
+          :src="`${imageBaseUrl}${object.Image.url}`"
+          :alt="`Image for ${object.Title}`"
+        >
+        <img
+          v-else
+          :src="`${imageBaseUrl}${object.Images[0].url}`"
+          :alt="`Image for ${object.Title}`"
+        >
       </div>
       <div class="bg-white mt-4 w-3/4 text-center py-2 rounded-lg">
         {{ object.Title }}

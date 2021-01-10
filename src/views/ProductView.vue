@@ -24,7 +24,11 @@
                   class="flex self-center h-full items-center justify-center object-contain"
                   :key="image.id"
                 >
-                  <img :src="`${imageBaseUrl}${image.url}`" alt="" class="h-full">
+                  <img
+                    :src="`${imageBaseUrl}${image.url}`"
+                    :alt="`Image for ${product.Title}`"
+                    class="h-full"
+                  >
                 </swiper-slide>
                 <div
                   class="swiper-button-prev text-black"
@@ -48,7 +52,11 @@
                   v-for="image in product.Images"
                   :key="image.id"
                 >
-                  <img :src="`${imageBaseUrl}${image.url}`" alt="" class="h-full">
+                  <img
+                    :src="`${imageBaseUrl}${image.url}`"
+                    :alt="`Image for ${product.Title}`"
+                    class="h-full"
+                  >
                 </swiper-slide>
               </swiper>
             </div>
