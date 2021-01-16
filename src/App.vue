@@ -13,7 +13,7 @@ export default {
 
 <style>
   .background {
-    background-image: url("./assets/background-image.png") ;
+    background-image: url("./assets/background-image.webp") ;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
