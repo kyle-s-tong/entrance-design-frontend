@@ -7,7 +7,7 @@
       <TheHeaderBar :isCollapsed="true" :lockBarState="true"  />
       <RouteTitle :title="category.Title" />
     </div>
-    <div class="flex justify-center">
+    <div class="flex justify-center background">
       <div class="py-32 w-2/3">
         <div
           class="flex flex-col md:flex-row grid
