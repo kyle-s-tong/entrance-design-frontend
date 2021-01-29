@@ -4,8 +4,17 @@
       <router-link :to="routerLinkUrl" class="w-2/3">
         <div class="flex items-center">
           <div class="bg-white w-3/12 p-4">
-            <img class="w-full" v-if="!hasMultipleImages" :src="`${imageBaseUrl}${item.Image.url}`">
-            <img v-else :src="`${imageBaseUrl}${item.Images[0].url}`">
+            <img
+              class="w-full"
+              v-if="!hasMultipleImages"
+              :src="`${imageBaseUrl}${item.Image.url}`"
+              :alt="`Image for ${item.Title}`"
+            >
+            <img
+              v-else
+              :src="`${imageBaseUrl}${item.Images[0].url}`"
+              :alt="`Image for ${item.Title}`"
+            >
           </div>
           <div class="w-1/4 flex justify-center w-9/12 text-center py-2">
             {{ item.Title }}

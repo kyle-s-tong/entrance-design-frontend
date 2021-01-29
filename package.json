@@ -9,7 +9,7 @@
     "deploy": "npm run build && aws s3 sync ./dist s3://entrance-design --delete"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "swiper": "^6.1.1",
     "vue": "^2.6.11",

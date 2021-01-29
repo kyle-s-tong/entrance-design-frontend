@@ -8,22 +8,51 @@
       <div class="flex flex-col items-center bg-white bg-opacity-75 w-full py-8">
         <div class="flex flex-col md:flex-row w-10/12 md:w-1/2 pb-10">
           <div class="flex flex-col w-full md:w-1/2 md:pr-10">
-            <swiper class="swiper w-full h-4/5 flex flex-col items-center" :options="swiperOptions" ref="mainGallery">
-              <swiper-slide v-for="image in galleryItem.GalleryImages" class="flex self-center h-full items-center" :key="image.id">
-                <img :src="`${imageBaseUrl}${image.url}`" alt="">
+            <swiper
+              class="swiper w-full h-4/5 flex flex-col items-center"
+              :options="swiperOptions"
+              ref="mainGallery"
+            >
+              <swiper-slide
+                v-for="image in galleryItem.GalleryImages"
+                class="flex self-center h-full items-center"
+                :key="image.id"
+              >
+                <img :src="`${imageBaseUrl}${image.url}`" :alt="`Image for ${galleryItem.Title}`">
               </swiper-slide>
-              <div class="swiper-button-prev text-black" slot="button-prev" v-on:click="handleClickedSlide('previous')"></div>
-              <div class="swiper-button-next text-black" slot="button-next" v-on:click="handleClickedSlide('next')"></div>
+              <div
+                class="swiper-button-prev text-black"
+                slot="button-prev"
+                v-on:click="handleClickedSlide('previous')"
+              ></div>
+              <div
+                class="swiper-button-next text-black"
+                slot="button-next"
+                v-on:click="handleClickedSlide('next')"
+              ></div>
             </swiper>
-            <swiper class="swiper w-full h-1/5 box-border p-3" :options="swiperOptionThumbs" ref="thumbs" v-on:click="handleClickedThumb">
-              <swiper-slide class="w-1/4 opacity-50 flex items-center" v-for="image in galleryItem.GalleryImages" :key="image.id">
-                <img :src="`${imageBaseUrl}${image.url}`" alt="">
+            <swiper
+              class="swiper w-full h-1/5 box-border p-3"
+              :options="swiperOptionThumbs"
+              ref="thumbs"
+              v-on:click="handleClickedThumb"
+            >
+              <swiper-slide
+                class="w-1/4 opacity-50 flex items-center"
+                v-for="image in galleryItem.GalleryImages"
+                :key="image.id"
+              >
+                <img :src="`${imageBaseUrl}${image.url}`" :alt="`Image for ${galleryItem.Title}`">
               </swiper-slide>
             </swiper>
           </div>
           <div class="w-full md:w-1/2 flex flex-col items-center">
             <h2 class="text-2xl lg:text-4xl">{{ galleryItem.Title }}</h2>
-            <img :src="`${imageBaseUrl}${galleryItem.MainImage.url}`" alt="" class="py-8">
+            <img
+              :src="`${imageBaseUrl}${galleryItem.MainImage.url}`"
+              :alt="`Image for ${galleryItem.Title}`"
+              class="py-8"
+            >
             <br>
             <VueShowdown :markdown="galleryItem.Description" class="text-justify" />
           </div>

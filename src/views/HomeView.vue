@@ -42,7 +42,7 @@
         </div>
         <div class="flex flex-col md:flex-row w-3/4 justify-center">
           <div class="w-full pt-4 md:pt-0 md:w-1/3">
-            <img :src="this.whoWeAreSection.image" class="w-full">
+            <img :src="this.whoWeAreSection.image" class="w-full" alt="Picture of Nicky and Claire">
           </div>
           <div class="w-full pt-4 md:pt-0 md:w-2/3 md:pl-16">
             <h2

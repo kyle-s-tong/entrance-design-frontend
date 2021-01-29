@@ -1,10 +1,10 @@
 <template>
   <div class="w-full h-full">
     <div class="flex w-full justify-center h-2/3 md:h-1/5 bg-black bg-opacity-25">
-      <TheHeaderBar :isCollapsed="true" />
+      <TheHeaderBar :isCollapsed="true" :lockBarState="true" />
       <RouteTitle :title="'Shop'" />
     </div>
-    <div class="flex flex-col items-center justify-center">
+    <div class="flex flex-col items-center justify-center background">
       <div class="py-32 w-2/3">
         <div class="flex flex-col md:flex-row grid grid-cols-1
                     md:grid-cols-4 gap-4 items-center w-full"
