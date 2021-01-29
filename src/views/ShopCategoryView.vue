@@ -7,7 +7,7 @@
       <TheHeaderBar :isCollapsed="true" :lockBarState="true"  />
       <RouteTitle :title="category.Title" />
     </div>
-    <div class="flex justify-center background">
+    <div class="flex justify-center">
       <div class="py-32 w-2/3">
         <div
           class="flex flex-col md:flex-row grid
@@ -50,6 +50,6 @@ export default {
     const response = await axios.get(`${process.env.VUE_APP_API_HOST}/product-categories/${this.$route.params.category_id}`);
     this.category = response.data;
     this.products = this.category.Products;
-  }
-}
+  },
+};
 </script>
