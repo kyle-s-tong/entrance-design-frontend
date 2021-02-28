@@ -5,21 +5,23 @@
     </div>
     <div class="flex flex-col w-full  h-full background">
       <div class="w-full h-full flex flex-col items-center
-                justify-center bg-entrance-brown bg-opacity-75"
+                justify-center bg-entrance-gray bg-opacity-75"
       >
         <div class="h-1/2 w-2/3 text-entrance-dark-brown flex
                 flex-col justify-center items-center brush"
         >
-          <h2 class="text-5xl text-center mt-8 tracking-wide">
+          <h2 class="text-4xl text-center mt-8 pb-4 tracking-wide uppercase">
             Our Process
           </h2>
           <div>
-            <p class="highlight text-center text-xl">
-              From interiors to renovations to furniture sourcing<br>
-              <span class="uppercase">Our passion is creating a home to enhance your living</span>
+            <p class="brush-large text-center text-base">
+              from interiors to renovations to furniture sourcing<br>
+              <span class="uppercase text-lg">
+                Our passion is creating a home to enhance your living
+              </span>
             </p>
-            <p class="pt-8 flex flex-col">
-              <span>“Your home should tell the story of who you are,
+            <p class="pt-12 flex flex-col">
+              <span class="italic">“Your home should tell the story of who you are,
                 and be a collection of what you love.”</span>
               <span class="self-end text-xs">Nate Berkus, The Things That Matter</span>
             </p>
@@ -35,12 +37,17 @@
     </div> -->
     <div class="background flex w-full text-entrance-dark-brown" id="whoweare">
       <div
-        class="bg-white bg-opacity-66 pt-16 pb-32 flex flex-col h-full w-full items-center"
+        class="bg-entrance-gray bg-opacity-80 pt-16 pb-32 flex flex-col h-full w-full items-center"
       >
         <div class="w-3/4 pb-2">
-          <h2 class="text-center md:text-left text-xl md:text-2xl">Who we are</h2>
+          <h2
+            class="text-center md:text-left text-xl
+                  md:text-2xl lg:text-3xl lg:uppercase tracking-wide"
+          >
+            Who we are
+          </h2>
         </div>
-        <div class="flex flex-col md:flex-row w-3/4 justify-center">
+        <div class="flex flex-col md:flex-row w-3/4 justify-center p-8 bg-entrance-gray">
           <div class="w-full pt-4 md:pt-0 md:w-1/3">
             <img :src="this.whoWeAreSection.image" class="w-full" alt="Picture of Nicky and Claire">
           </div>
@@ -52,7 +59,7 @@
             </h2>
             <div
               v-html="this.whoWeAreSection.description"
-              class="pt-0 lg:pt-2 text-justify text-xs lg:text-sm"
+              class="pt-0 lg:pt-2 text-justify text-xs lg:text-base"
             />
           </div>
         </div>

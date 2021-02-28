@@ -118,7 +118,7 @@ export default {
   computed: {
     navBarState() {
       return {
-        'bg-entrance-brown h-24 text-white': this.navCollapsed,
+        'bg-entrance-gray h-24 text-white': this.navCollapsed,
         collapse: this.navCollapsed,
         open: !this.navCollapsed,
         'text-white': !this.navCollapsed,

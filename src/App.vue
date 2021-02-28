@@ -37,6 +37,14 @@ export default {
     color: black;
   }
 
+  .brush-large {
+    background: url("./assets/brush.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 90% 90%;
+    background-position: 100% 200%;
+  }
+
   html, body {
     height: 100%;
     width: 100%;
