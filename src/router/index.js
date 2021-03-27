@@ -12,6 +12,8 @@ import CheckoutView from '../views/CheckoutView';
 import ProductView from '../views/ProductView';
 import QuestionnaireView from '../views/QuestionnaireView';
 import QuestionnaireResultsView from '../views/QuestionnaireResultsView';
+import RegisterView from '../views/RegisterView';
+import LoginView from '../views/LoginView';
 
 Vue.use(Router);
 
@@ -35,6 +37,8 @@ export default function createRouter() {
       { path: '/gallery/:id', component: GallerySingleView },
       { path: '/pricing', component: PricingView },
       { path: '/contact-us', component: ContactUsView },
+      { path: '/login', component: LoginView },
+      { path: '/register', component: RegisterView },
       { path: '/shop', component: ShopView },
       { path: '/shop/categories/:category_id', component: ShopCategoryView },
       { path: '/shop/categories/:category_id/products/:product_id', component: ProductView },

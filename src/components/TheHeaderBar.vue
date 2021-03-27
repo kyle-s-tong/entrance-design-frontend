@@ -102,6 +102,7 @@ export default {
         { text: 'Projects', route: '/gallery' },
         { text: 'Pricing', route: '/pricing' },
         { text: 'Contact', route: '/contact-us' },
+        { text: 'Login/Register', route: '/login' },
       ],
       questionnaireButton: {
         text: 'Take our questionnaire',
