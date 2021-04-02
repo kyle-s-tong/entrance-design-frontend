@@ -148,7 +148,7 @@ export default {
   },
   async mounted() {
     // TODO: handle errors
-    const galleryItem = await axios.get(`${process.env.VUE_APP_API_HOST}/galleries/${this.$route.params.id}`);
+    const galleryItem = await axios.get(`${process.env.VUE_APP_API_HOST}/galleries?slug=${this.$route.params.slug}`);
     const galleries = await axios.get(`${process.env.VUE_APP_API_HOST}/galleries`);
     this.galleryItem = galleryItem.data;
     this.galleries = galleries.data;
