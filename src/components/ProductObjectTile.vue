@@ -30,6 +30,7 @@ export default {
   props: {
     object: Object,
     objectType: String,
+    categorySlug: String,
   },
   data() {
     return {
@@ -44,10 +45,10 @@ export default {
     },
     routerLinkUrl() {
       if (this.objectType === 'product') {
-        return `/shop/categories/${this.object.ProductCategory}/products/${this.object.id}`;
+        return `/shop/categories/${this.categorySlug}/products/${this.object.Slug}`;
       }
 
-      return `/shop/categories/${this.object.id}`;
+      return `/shop/categories/${this.object.Slug}`;
     },
   },
 };

@@ -203,8 +203,9 @@ export default {
     },
   },
   async mounted() {
-    const response = await axios.get(`${process.env.VUE_APP_API_HOST}/products/${this.$route.params.product_id}`);
-    this.product = response.data;
+    const response = await axios.get(`${process.env.VUE_APP_API_HOST}/products?Slug=${this.$route.params.product_slug}`);
+    // eslint-disable-next-line prefer-destructuring
+    this.product = response.data[0];
     this.loading = false;
 
     await this.$nextTick;

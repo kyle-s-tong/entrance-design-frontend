@@ -19,6 +19,7 @@
             :key="product.id"
             :object="product"
             :objectType="'product'"
+            :categorySlug="category.Slug"
           />
         </div>
       </div>
@@ -47,8 +48,9 @@ export default {
     };
   },
   async mounted() {
-    const response = await axios.get(`${process.env.VUE_APP_API_HOST}/product-categories/${this.$route.params.category_id}`);
-    this.category = response.data;
+    const response = await axios.get(`${process.env.VUE_APP_API_HOST}/product-categories?Slug=${this.$route.params.category_slug}`);
+    // eslint-disable-next-line prefer-destructuring
+    this.category = response.data[0];
     this.products = this.category.Products;
   },
 };
