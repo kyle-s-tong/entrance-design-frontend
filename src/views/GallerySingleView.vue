@@ -148,9 +148,10 @@ export default {
   },
   async mounted() {
     // TODO: handle errors
-    const galleryItem = await axios.get(`${process.env.VUE_APP_API_HOST}/galleries?slug=${this.$route.params.slug}`);
+    const galleryItem = await axios.get(`${process.env.VUE_APP_API_HOST}/galleries?Slug=${this.$route.params.slug}`);
     const galleries = await axios.get(`${process.env.VUE_APP_API_HOST}/galleries`);
-    this.galleryItem = galleryItem.data;
+    // eslint-disable-next-line prefer-destructuring
+    this.galleryItem = galleryItem.data[0];
     this.galleries = galleries.data;
 
     await this.$nextTick;
