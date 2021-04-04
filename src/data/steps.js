@@ -15,7 +15,7 @@ export const stepDetails = [
       text: 'view our design packages',
       route: '/pricing',
     },
-    image: require('../assets/steps/step1-darkdesk.jpg'),
+    image: require('../assets/steps/step1-darkdesk.webp'),
   },
   {
     number: 1,
@@ -24,7 +24,7 @@ export const stepDetails = [
       text: 'take our free design quiz',
       route: '/questionnaire',
     },
-    image: require('../assets/steps/step2-lightroom.jpg'),
+    image: require('../assets/steps/step2-lightroom.webp'),
     reverse: true,
   },
   {
@@ -34,19 +34,19 @@ export const stepDetails = [
       text: 'view our pricing options',
       route: '/pricing',
     },
-    image: require('../assets/steps/step3-pricingoptions.jpg'),
+    image: require('../assets/steps/step3-pricingoptions.webp'),
   },
   {
     number: 3,
     title: 'Digital collaboration',
     description: 'You send us measurements and images, we send you back concepts.',
-    image: require('../assets/steps/step4-digitalcollab.jpg'),
+    image: require('../assets/steps/step4-digitalcollab.webp'),
     reverse: true,
   },
   {
     number: 4,
     title: 'Your concept design supplied',
     description: 'We send you a mood board & shopping list to make your interiors work.',
-    image: require('../assets/steps/step5-moodboard.jpg'),
+    image: require('../assets/steps/step5-moodboard.webp'),
   },
 ];
