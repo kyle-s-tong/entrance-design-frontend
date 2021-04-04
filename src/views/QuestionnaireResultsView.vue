@@ -2,7 +2,10 @@
   <div class="w-full h-full">
     <div class="flex w-full flex-none justify-center h-1/5 bg-black bg-opacity-25">
       <TheHeaderBar :isCollapsed="true" :lockBarState="true" />
-      <RouteTitle :title="'Interior design restyled. Expect more for less.'" class="text-center pb-8 uppercase" />
+      <RouteTitle
+        :title="'Interior design restyled. Expect more for less.'"
+        class="text-center pb-8 uppercase"
+      />
     </div>
     <div class="background">
       <div class="bg-white bg-opacity-75 flex justify-center pb-16">

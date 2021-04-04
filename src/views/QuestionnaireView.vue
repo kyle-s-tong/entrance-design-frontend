@@ -5,17 +5,34 @@
       <RouteTitle :title="'Design Questionnaire'" />
     </div>
     <div class="flex flex-col flex-grow">
-      <component :is="currentStepComponent" :stepData="currentStepData" :errors="errors" v-if="questionnaire"></component>
+      <component
+        :is="currentStepComponent"
+        :stepData="currentStepData"
+        :errors="errors"
+        v-if="questionnaire"
+      ></component>
       <div class="background">
         <div class="bg-white bg-opacity-90 flex justify-center py-2 md:py-0 md:pb-16">
           <div :class="['flex grid', currentStep > 1 ? 'grid-cols-2 gap-2' : '']">
-            <button v-if="currentStep > 1" v-on:click="goToPreviousStep" class="border-2 py-4 px-6 text-lg bg-white border-black">
+            <button
+              v-if="currentStep > 1"
+              v-on:click="goToPreviousStep"
+              class="border-2 py-4 px-6 text-lg bg-white border-black"
+            >
               Previous
             </button>
-            <button v-if="currentStep < finalStep" v-on:click="goToNextStep" class="border-2 py-4 px-6 text-lg bg-white border-black">
+            <button
+              v-if="currentStep < finalStep"
+              v-on:click="goToNextStep"
+              class="border-2 py-4 px-6 text-lg bg-white border-black"
+            >
               Next
             </button>
-            <button v-if="currentStep === finalStep" v-on:click="submitQuestionnaire" class="border-2 py-4 px-6 text-lg bg-white border-black">
+            <button
+              v-if="currentStep === finalStep"
+              v-on:click="submitQuestionnaire"
+              class="border-2 py-4 px-6 text-lg bg-white border-black"
+            >
               Get result
             </button>
           </div>
@@ -154,12 +171,14 @@ export default {
     },
     currentStepData() {
       if (!this.questionnaire) {
-        return;
+        return null;
       }
 
-      const filtered = this.questionnaire.filter((question) => question.StepNumber === this.currentStep);
+      const filtered = this.questionnaire.filter(
+        (question) => question.StepNumber === this.currentStep,
+      );
       if (filtered.length === 0) {
-        return;
+        return null;
       }
 
       return filtered[0];
