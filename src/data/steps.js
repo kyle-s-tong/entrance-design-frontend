@@ -24,7 +24,7 @@ export const stepDetails = [
       text: 'take our free design quiz',
       route: '/questionnaire',
     },
-    image: require('../assets/steps/step2-lightroom.webp'),
+    image: require('../assets/steps/step2-ptchev.webp'),
     reverse: true,
   },
   {
