@@ -19,6 +19,12 @@ export default {
     background-attachment: fixed;
   }
 
+  @media screen and (max-width: 640px) {
+    .background {
+      background-image: url("./assets/background-image-mobile.webp") ;
+    }
+  }
+
   .highlight:hover {
     background: url("./assets/brush.png");
     background-repeat: no-repeat;
