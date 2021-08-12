@@ -6,10 +6,6 @@ import GalleryView from '../views/GalleryView';
 import GallerySingleView from '../views/GallerySingleView';
 import PricingView from '../views/PricingView';
 import ContactUsView from '../views/ContactUsView';
-import ShopView from '../views/ShopView';
-import ShopCategoryView from '../views/ShopCategoryView';
-import CheckoutView from '../views/CheckoutView';
-import ProductView from '../views/ProductView';
 import QuestionnaireView from '../views/QuestionnaireView';
 import QuestionnaireResultsView from '../views/QuestionnaireResultsView';
 
@@ -35,10 +31,6 @@ export default function createRouter() {
       { path: '/gallery/:slug', component: GallerySingleView },
       { path: '/pricing', component: PricingView },
       { path: '/contact-us', component: ContactUsView },
-      { path: '/shop', component: ShopView },
-      { path: '/shop/categories/:category_slug', component: ShopCategoryView },
-      { path: '/shop/categories/:category_slug/products/:product_slug', component: ProductView },
-      { path: '/shop/checkout', component: CheckoutView },
       { path: '/questionnaire', component: QuestionnaireView },
       { path: '/questionnaire/results', component: QuestionnaireResultsView },
       { path: '/home', redirect: '/' },

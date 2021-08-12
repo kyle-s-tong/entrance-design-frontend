@@ -22,6 +22,7 @@
             :link="link"
             :class="'highlight hover:text-black'"
             :isCollapsed="navCollapsed"
+            :isExternal="link.isExternal"
           />
         </div>
       </div>
@@ -160,7 +161,8 @@ export default {
 
         this.headerBarLinks.push({
           text: 'Shop',
-          route: '/shop',
+          route: 'https://shop.entrancedesign.co.nz',
+          isExternal: true,
         });
 
         this.headerBarLinks.push(endLink);

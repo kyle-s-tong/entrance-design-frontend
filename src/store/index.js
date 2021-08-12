@@ -15,7 +15,6 @@ export default new Vuex.Store({
     featuresEnabled: {
       shopEnabled: process.env.VUE_APP_SHOP_ENABLED === 'true',
     },
-    shoppingCart: [],
   },
   mutations: {
     setName(state, payload) {
@@ -38,20 +37,6 @@ export default new Vuex.Store({
     setFinalResult(state, payload) {
       state.finalResult = payload.calculatedFinalResult;
     },
-    addToCart(state, payload) {
-      const { item } = payload;
-      state.shoppingCart = [...state.shoppingCart, item];
-    },
-    removeFromCart(state, payload) {
-      const { item } = payload;
-      if (state.shoppingCart.includes(item)) {
-        const index = state.shoppingCart.indexOf(item);
-        state.shoppingCart.splice(index, 1);
-      }
-    },
-    clearCart(state) {
-      state.shoppingCart = [];
-    },
   },
   getters: {
     getSelectedOptionByStep: (state) => (step) => state.selectedOptions.find(
@@ -65,7 +50,5 @@ export default new Vuex.Store({
     getName: (state) => () => state.name,
     getEmailAddress: (state) => () => state.emailAddress,
     getFeaturesEnabled: (state) => () => state.featuresEnabled,
-    getShoppingCart: (state) => () => state.shoppingCart,
-    getNumberOfItemsInCart: (state) => () => state.shoppingCart.length,
   },
 });
