@@ -88,6 +88,8 @@ export default {
         if (validated === false) {
           return;
         }
+
+        this.saveUserDetails();
       }
 
       this.currentStep = nextStep;
@@ -116,7 +118,10 @@ export default {
 
       return false;
     },
-    async submitQuestionnaire() {
+    saveUserDetails() {
+      this.createUser(null, false);
+    },
+    submitQuestionnaire() {
       // From a state point of view these are full results, but from a questionnaire point of view,
       // they are raw because they are uncalculated, hence the variable name change.
       const rawResults = this.$store.getters.getFullResults();
@@ -147,13 +152,21 @@ export default {
 
       return highestScore;
     },
-    createUser(result) {
+    createUser(result, quizCompleted = true) {
       const requestBody = {
         email: this.$store.getters.getEmailAddress(),
         username: this.$store.getters.getEmailAddress(),
-        password: Math.random().toString(36).substring(7),
-        questionnaireResult: result,
+        name: this.$store.getters.getName(),
+        quizCompleted,
       };
+
+      if (quizCompleted === true) {
+        requestBody.questionnaireResult = result;
+      }
+
+      if (quizCompleted === false) {
+        requestBody.password = Math.random().toString(36).substring(7);
+      }
 
       axios.post(
         `${process.env.VUE_APP_API_HOST}/questionnaire-results`,

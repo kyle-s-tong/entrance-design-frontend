@@ -105,7 +105,7 @@ export default {
         { text: 'Contact', route: '/contact-us' },
       ],
       questionnaireButton: {
-        text: 'Take our questionnaire',
+        text: 'Take our free design quiz',
         route: '/questionnaire',
       },
       navCollapsed: this.isCollapsed,

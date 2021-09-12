@@ -21,10 +21,24 @@
                 <li v-for="error in errors" :key="error">{{ error }}</li>
               </ul>
             </p>
-            <label for="name">Name *</label>
-            <input type="text" name="name" id="name" v-model="name" placeholder="name" class="my-2 p-2 border border-entrance-gray rounded">
-            <label for="emailAddress">Email address *</label>
-            <input type="text" name="emailAddress" id="emailAddress" v-model="emailAddress" placeholder="email address" class="my-2 p-2 border border-entrance-gray rounded">
+            <label for="name">Name<sup>*</sup>:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              v-model="name"
+              placeholder="name"
+              class="my-2 p-2 border border-entrance-gray rounded"
+            >
+            <label for="emailAddress">Email address<sup>*</sup>:</label>
+            <input
+              type="text"
+              name="emailAddress"
+              id="emailAddress"
+              v-model="emailAddress"
+              placeholder="email address"
+              class="my-2 p-2 border border-entrance-gray rounded"
+            >
           </div>
         </div>
       </div>
